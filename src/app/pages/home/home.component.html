@@ -1,0 +1,98 @@
+<div class="home-page">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="logo-large">🐾</div>
+            <h1 class="hero-title">CuidaColitas</h1>
+            <p class="hero-subtitle">Sistema Integral de Gestión Veterinaria</p>
+            <p class="hero-description">
+                Documentación completa para usuarios, desarrolladores y administradores del sistema CuidaColitas
+            </p>
+            <div class="hero-actions">
+                <a routerLink="/user-manual/cliente" class="btn btn-primary">
+                    Comenzar
+                    <span>→</span>
+                </a>
+                <a routerLink="/developer/architecture" class="btn btn-secondary">
+                    Ver Arquitectura
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Explora la Documentación</h2>
+        <div class="features-grid">
+            @for (feature of features; track feature.title) {
+            <a [routerLink]="feature.route" class="feature-card">
+                <div class="feature-icon" [style.background]="feature.gradient">
+                    {{ feature.icon }}
+                </div>
+                <h3 class="feature-title">{{ feature.title }}</h3>
+                <p class="feature-description">{{ feature.description }}</p>
+                <span class="feature-link">
+                    Explorar
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+            }
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+        <h2 class="section-title">Enlaces Rápidos</h2>
+        <div class="quick-links-grid">
+            @for (link of quickLinks; track link.label) {
+            <a [routerLink]="link.route" class="quick-link-item">
+                <span class="link-icon">📄</span>
+                <span class="link-label">{{ link.label }}</span>
+                <span class="link-arrow">→</span>
+            </a>
+            }
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">3</div>
+                <div class="stat-label">Tipos de Usuario</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📱</div>
+                <div class="stat-value">Mobile</div>
+                <div class="stat-label">React Native + Expo</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🤖</div>
+                <div class="stat-value">IA</div>
+                <div class="stat-label">Chatbot con Gemini</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🗄️</div>
+                <div class="stat-value">Supabase</div>
+                <div class="stat-label">Backend & Database</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="getting-started">
+        <div class="getting-started-content">
+            <h2>¿Nuevo en CuidaColitas?</h2>
+            <p>Comienza con nuestra guía de inicio rápido para usuarios o desarrolladores</p>
+            <div class="getting-started-actions">
+                <a routerLink="/user-manual/cliente" class="btn btn-primary">
+                    👤 Soy Usuario
+                </a>
+                <a routerLink="/developer/installation" class="btn btn-primary">
+                    💻 Soy Desarrollador
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

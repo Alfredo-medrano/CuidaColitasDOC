@@ -1,0 +1,415 @@
+<div class="doc-page">
+    <h1>🏗️ Arquitectura del Sistema</h1>
+    <p class="lead">Arquitectura en Capas con Backend Serverless</p>
+
+    <app-info-card type="tip" title="Definición">
+        <p>CuidaColitasAPP utiliza una <strong>Arquitectura en Capas (Layered Architecture)</strong> basada en
+            componentes, con el patrón <strong>Cliente-Servidor</strong> y enfoque <strong>Serverless</strong> gracias a
+            Supabase.</p>
+    </app-info-card>
+
+    <!-- Diagrama de Alto Nivel -->
+    <section class="doc-section">
+        <h2>📊 Diagrama de Alto Nivel</h2>
+        <p>El sistema opera bajo un modelo híbrido donde la aplicación móvil gestiona la lógica de presentación y
+            negocio, delegando la persistencia, autenticación y almacenamiento a servicios en la nube (BaaS - Backend as
+            a Service).</p>
+
+        <div class="architecture-diagram">
+            <div class="layer">
+                <div class="layer-header client">CLIENTE MÓVIL (React Native)</div>
+                <div class="layer-content">
+                    <div class="component">📱 Interfaz de Usuario<br /><small>(Screens/Components)</small></div>
+                    <div class="component">🔄 Gestión de Estado<br /><small>(Context API/Hooks)</small></div>
+                    <div class="component">⚡ Capa de Servicio<br /><small>(Supabase Client)</small></div>
+                </div>
+            </div>
+
+            <div class="arrow-down">↓ Internet / HTTPS ↓</div>
+
+            <div class="layer">
+                <div class="layer-header cloud">NUBE (Backend as a Service)</div>
+                <div class="layer-content horizontal">
+                    <div class="service">
+                        <div class="service-header">SUPABASE</div>
+                        <ul>
+                            <li>🔐 Autenticación (Auth)</li>
+                            <li>🗄️ Base de Datos (PostgreSQL)</li>
+                            <li>📁 Storage (Archivos)</li>
+                            <li>⚡ Realtime</li>
+                        </ul>
+                    </div>
+                    <div class="service">
+                        <div class="service-header">BOTPRESS</div>
+                        <ul>
+                            <li>🤖 Chatbot IA</li>
+                            <li>💬 NLP</li>
+                            <li>🎯 Automatización</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arquitectura en 3 Capas -->
+    <section class="doc-section">
+        <h2>🎯 Arquitectura en 3 Capas</h2>
+        <p>La aplicación <code>src/</code> está estructurada en tres capas lógicas que separan responsabilidades:</p>
+
+        <div class="layers-grid">
+            <!-- Capa 1: Presentación -->
+            <div class="layer-card">
+                <div class="layer-title">
+                    <span class="layer-number">1</span>
+                    <h3>Capa de Presentación</h3>
+                </div>
+                <p class="layer-subtitle">UI Layer - "Vista"</p>
+
+                <div class="layer-details">
+                    <h4>Responsabilidad:</h4>
+                    <p>Lo que el usuario ve e interactúa. No procesa lógica compleja, solo muestra datos y captura
+                        eventos.</p>
+
+                    <h4>Tecnología:</h4>
+                    <p>React Native, React Navigation</p>
+
+                    <h4>Componentes:</h4>
+                    <ul>
+                        <li><strong>Screens</strong> (<code>src/screens/</code>): Vistas completas segregadas por rol
+                        </li>
+                        <li><strong>Components</strong> (<code>src/components/</code>): Elementos reutilizables
+                            (botones, cards, layouts)</li>
+                        <li><strong>Navegación</strong>: Gestiona flujo entre pantallas (Stacks, Tabs, Drawer)</li>
+                    </ul>
+
+                    <h4>Ejemplo:</h4>
+                    <p><code>ClienteHome.js</code>, <code>InfoCard.js</code>, <code>MainLayout.js</code></p>
+                </div>
+            </div>
+
+            <!-- Capa 2: Lógica de Negocio -->
+            <div class="layer-card">
+                <div class="layer-title">
+                    <span class="layer-number">2</span>
+                    <h3>Capa de Lógica de Negocio</h3>
+                </div>
+                <p class="layer-subtitle">Business Logic Layer - "Cerebro"</p>
+
+                <div class="layer-details">
+                    <h4>Responsabilidad:</h4>
+                    <p>Puente entre la vista y los datos. Aquí se toman las decisiones de la aplicación.</p>
+
+                    <h4>Tecnología:</h4>
+                    <p>React Hooks, Context API</p>
+
+                    <h4>Componentes:</h4>
+                    <ul>
+                        <li><strong>Context</strong> (<code>src/context/</code>): Estado global (sesión, usuario)</li>
+                        <li><strong>Hooks Personalizados</strong> (<code>src/hooks/</code>): Lógica específica
+                            encapsulada</li>
+                        <li><strong>Utils</strong> (<code>src/utils/</code>): Funciones auxiliares (validación,
+                            formateo)</li>
+                    </ul>
+
+                    <h4>Ejemplo:</h4>
+                    <p><code>useAppointments.js</code> - Filtra citas pasadas vs futuras, formatea fechas</p>
+                    <p><code>AuthContext.js</code> - Mantiene sesión activa, distribuye rol del usuario</p>
+                </div>
+            </div>
+
+            <!-- Capa 3: Datos -->
+            <div class="layer-card">
+                <div class="layer-title">
+                    <span class="layer-number">3</span>
+                    <h3>Capa de Acceso a Datos</h3>
+                </div>
+                <p class="layer-subtitle">Data Access Layer - "Puerta al Backend"</p>
+
+                <div class="layer-details">
+                    <h4>Responsabilidad:</h4>
+                    <p>Única capa que "conoce" la existencia del backend. Abstrae la conexión a la base de datos.</p>
+
+                    <h4>Tecnología:</h4>
+                    <p>Supabase JS Client</p>
+
+                    <h4>Componentes:</h4>
+                    <ul>
+                        <li><strong>API Client</strong> (<code>src/api/Supabase.js</code>): Cliente singleton de
+                            Supabase</li>
+                        <li>Expone métodos: <code>select()</code>, <code>insert()</code>, <code>update()</code>,
+                            <code>delete()</code></li>
+                    </ul>
+
+                    <h4>Ejemplo:</h4>
+                    <app-code-block filename="src/api/Supabase.js" language="javascript"
+                        [code]="supabaseSingletonExample"></app-code-block>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arquitectura del Backend -->
+    <section class="doc-section">
+        <h2>☁️ Arquitectura del Backend (Supabase)</h2>
+        <p>Al no tener un servidor backend tradicional (Node.js/Express), la arquitectura delega a
+            <strong>Supabase</strong> como infraestructura unificada:</p>
+
+        <div class="backend-components">
+            <div class="backend-card">
+                <h3>🗄️ Base de Datos Relacional</h3>
+                <p><strong>PostgreSQL</strong></p>
+                <ul>
+                    <li>Tablas: <code>users</code>, <code>appointments</code>, <code>pets</code>,
+                        <code>medical_records</code></li>
+                    <li>Integridad referencial (relaciones entre entidades)</li>
+                    <li>Triggers y funciones SQL</li>
+                </ul>
+            </div>
+
+            <div class="backend-card">
+                <h3>🔐 Autenticación</h3>
+                <p><strong>GoTrue (Supabase Auth)</strong></p>
+                <ul>
+                    <li>Registro, login, recuperación de contraseña</li>
+                    <li>JWT Tokens para sesiones</li>
+                    <li>Provee UID único por usuario</li>
+                </ul>
+            </div>
+
+            <div class="backend-card">
+                <h3>📁 Storage</h3>
+                <p><strong>Supabase Storage</strong></p>
+                <ul>
+                    <li>Buckets para imágenes (perfiles, mascotas)</li>
+                    <li>Documentos PDF (recetas, resultados)</li>
+                    <li>URLs firmadas para acceso seguro</li>
+                </ul>
+            </div>
+
+            <div class="backend-card">
+                <h3>🔒 Seguridad (RLS)</h3>
+                <p><strong>Row Level Security</strong></p>
+                <ul>
+                    <li>Políticas SQL a nivel de fila</li>
+                    <li>Un cliente solo ve sus propias mascotas</li>
+                    <li>Veterinarios acceden a pacientes asignados</li>
+                </ul>
+                <app-code-block filename="Ejemplo RLS Policy" language="sql" [code]="rlsExample"></app-code-block>
+            </div>
+
+            <div class="backend-card">
+                <h3>⚡ Realtime</h3>
+                <p><strong>Supabase Realtime</strong></p>
+                <ul>
+                    <li>Mensajes de chat en tiempo real</li>
+                    <li>Notificaciones instantáneas</li>
+                    <li>Sincronización automática de datos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flujo de Datos -->
+    <section class="doc-section">
+        <h2>🔄 Flujo de Datos</h2>
+        <p>Caso de uso: <strong>"Crear una Cita"</strong></p>
+
+        <div class="data-flow">
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <div class="flow-content">
+                    <h4>Input (UI)</h4>
+                    <p>Usuario llena el formulario en <code>SolicitarCita.js</code></p>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <div class="flow-content">
+                    <h4>Validación (Utils)</h4>
+                    <p>Función <code>validation.js</code> verifica campos obligatorios</p>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <div class="flow-content">
+                    <h4>Procesamiento (Hook)</h4>
+                    <p><code>useAppointmentForm.js</code> estructura el objeto de datos</p>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">4</div>
+                <div class="flow-content">
+                    <h4>Petición (API)</h4>
+                    <p><code>supabase.from('appointments').insert(...)</code></p>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">5</div>
+                <div class="flow-content">
+                    <h4>Backend (Supabase)</h4>
+                    <p>Verifica token, guarda en PostgreSQL</p>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">6</div>
+                <div class="flow-content">
+                    <h4>Respuesta</h4>
+                    <p>Supabase confirma éxito o error</p>
+                </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">7</div>
+                <div class="flow-content">
+                    <h4>Actualización (UI)</h4>
+                    <p>Muestra <code>LoadingOverlay</code>, redirige a lista de citas</p>
+                </div>
+            </div>
+        </div>
+
+        <app-code-block filename="Flujo de Datos - Código" language="javascript"
+            [code]="dataFlowExample"></app-code-block>
+    </section>
+
+    <!-- Patrones de Diseño -->
+    <section class="doc-section">
+        <h2>🎨 Patrones de Diseño</h2>
+
+        <div class="patterns-grid">
+            <div class="pattern-card">
+                <h3>1️⃣ Singleton</h3>
+                <p class="pattern-desc">Una única instancia compartida de la conexión a Supabase</p>
+                <p><strong>Dónde:</strong> <code>src/api/Supabase.js</code></p>
+                <p><strong>Por qué:</strong> Evita múltiples conexiones a la base de datos, optimiza recursos</p>
+                <app-code-block language="javascript" [code]="supabaseSingletonExample"></app-code-block>
+            </div>
+
+            <div class="pattern-card">
+                <h3>2️⃣ Observer / Pub-Sub</h3>
+                <p class="pattern-desc">React Context actúa como publicador que notifica cambios</p>
+                <p><strong>Dónde:</strong> <code>AuthContext.js</code></p>
+                <p><strong>Por qué:</strong> Todos los componentes reciben actualizaciones automáticas del estado de
+                    autenticación</p>
+                <app-code-block language="javascript" [code]="authContextExample"></app-code-block>
+            </div>
+
+            <div class="pattern-card">
+                <h3>3️⃣ Container / Presentational</h3>
+                <p class="pattern-desc">Separación entre lógica y presentación</p>
+                <p><strong>Container:</strong> Screens (manejan lógica y hooks)</p>
+                <p><strong>Presentational:</strong> Components (solo reciben props)</p>
+                <app-code-block language="javascript" [code]="containerPresentationalExample"></app-code-block>
+            </div>
+
+            <div class="pattern-card">
+                <h3>4️⃣ RBAC (Role-Based Access Control)</h3>
+                <p class="pattern-desc">Control de acceso basado en roles</p>
+                <p><strong>Dónde:</strong> <code>App.js</code>, políticas RLS</p>
+                <p><strong>Por qué:</strong> Cada usuario ve solo lo que le corresponde según su rol</p>
+                <app-code-block language="javascript" [code]="rbacExample"></app-code-block>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integraciones Externas -->
+    <section class="doc-section">
+        <h2>🔌 Integraciones Externas</h2>
+
+        <div class="integrations">
+            <div class="integration-card">
+                <h3>🤖 Botpress (Chatbot IA)</h3>
+                <p><strong>Método:</strong> Integración vía Webview o API</p>
+                <p><strong>Función:</strong> La app actúa como contenedor visual del bot conversacional</p>
+                <p><strong>Beneficio:</strong> Soporte automatizado 24/7 sin sobrecargar el backend principal</p>
+                <ul>
+                    <li>Respuestas instantáneas a preguntas frecuentes</li>
+                    <li>Recomendaciones de cuidado de mascotas</li>
+                    <li>Recordatorios de vacunas y citas</li>
+                </ul>
+            </div>
+
+            <div class="integration-card">
+                <h3>🌐 Google Gemini AI</h3>
+                <p><strong>Método:</strong> API REST</p>
+                <p><strong>Función:</strong> Procesamiento de lenguaje natural avanzado</p>
+                <p><strong>Uso:</strong> Mejorar respuestas del chatbot con IA generativa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventajas de la Arquitectura -->
+    <section class="doc-section">
+        <h2>✨ Ventajas de esta Arquitectura</h2>
+
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <h4>📈 Escalabilidad</h4>
+                <p>Supabase maneja automáticamente la carga, sin necesidad de gestionar servidores</p>
+            </div>
+
+            <div class="advantage-card">
+                <h4>🚀 Desarrollo Rápido</h4>
+                <p>Backend as a Service reduce tiempo de desarrollo en un 60%</p>
+            </div>
+
+            <div class="advantage-card">
+                <h4>🔒 Seguridad Integrada</h4>
+                <p>RLS a nivel de base de datos, no solo en frontend</p>
+            </div>
+
+            <div class="advantage-card">
+                <h4>💰 Costo Efectivo</h4>
+                <p>Sin servidores que mantener, pago por uso real</p>
+            </div>
+
+            <div class="advantage-card">
+                <h4>🔄 Tiempo Real</h4>
+                <p>Chat y notificaciones instantáneas out-of-the-box</p>
+            </div>
+
+            <div class="advantage-card">
+                <h4>🧩 Modularidad</h4>
+                <p>Capas bien definidas facilitan mantenimiento y testing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resumen -->
+    <app-info-card type="success" title="Resumen Arquitectónico">
+        <p><strong>CuidaColitasAPP utiliza una arquitectura React Native con Expo desacoplada, apoyada en Supabase como
+                backend serverless.</strong></p>
+        <p>Prioriza la <strong>modularidad</strong> mediante el uso de Hooks personalizados para la lógica de negocio y
+            Context API para el estado global, asegurando <strong>escalabilidad</strong> y una clara <strong>separación
+                de responsabilidades</strong> entre la interfaz de usuario y la gestión de datos.</p>
+    </app-info-card>
+
+    <!-- Enlaces Relacionados -->
+    <section class="doc-section">
+        <h2>📚 Documentación Relacionada</h2>
+        <ul>
+            <li><a routerLink="/developer/structure">Estructura del Proyecto</a> - Organización de carpetas y archivos
+            </li>
+            <li><a routerLink="/technical/database">Base de Datos</a> - Esquema y relaciones</li>
+            <li><a routerLink="/technical/rls">RLS Policies</a> - Seguridad a nivel de datos</li>
+            <li><a routerLink="/developer/api">API Reference</a> - Métodos de Supabase</li>
+        </ul>
+    </section>
+</div>

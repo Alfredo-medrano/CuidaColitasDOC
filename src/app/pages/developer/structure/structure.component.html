@@ -1,0 +1,188 @@
+<div class="doc-page">
+    <h1>📁 Estructura del Proyecto CuidaColitas</h1>
+    <p class="lead">Documentación completa de la arquitectura y organización del código</p>
+
+    <app-info-card type="info" title="Repositorio GitHub">
+        <p>El código fuente completo está disponible en: <a
+                href="https://github.com/Alfredo-medrano/CuidaColitasAPP-UGB.git"
+                target="_blank">CuidaColitasAPP-UGB</a></p>
+    </app-info-card>
+
+    <section class="doc-section">
+        <h2>📦 Árbol de Directorios</h2>
+        <p>El proyecto sigue una arquitectura modular basada en React Native + Expo.</p>
+
+        <div class="folder-tree">
+            <div class="tree-item root">📦 CuidaColitasAPP-UGB</div>
+            <div class="tree-item level-1">├── 📄 App.js, app.config.js, package.json</div>
+            <div class="tree-item level-1">├── 🤖 android/ (Configuración Nativa)</div>
+            <div class="tree-item level-1">├── 🗄️ supabase/ (Migraciones SQL)</div>
+            <div class="tree-item level-1">└── 📱 src/</div>
+            <div class="tree-item level-2">├── api/ (Cliente Supabase)</div>
+            <div class="tree-item level-2">├── assets/ (Imágenes, fuentes)</div>
+            <div class="tree-item level-2">├── components/ (UI Components)</div>
+            <div class="tree-item level-2">├── context/ (AuthContext)</div>
+            <div class="tree-item level-2">├── hooks/ (Custom Hooks)</div>
+            <div class="tree-item level-2">├── screens/ (Páginas)</div>
+            <div class="tree-item level-2">├── theme/ (Colores, estilos)</div>
+            <div class="tree-item level-2">└── utils/ (Helpers)</div>
+        </div>
+    </section>
+
+    <section class="doc-section">
+        <h2>⚙️ Configuración Raíz</h2>
+        <p>Archivos esenciales para la configuración del proyecto y dependencias.</p>
+
+        <div class="file-grid">
+            <div class="file-card">
+                <div class="file-icon">📄</div>
+                <div class="file-name">App.js</div>
+                <div class="file-desc">Punto de entrada principal</div>
+            </div>
+            <div class="file-card">
+                <div class="file-icon">⚙️</div>
+                <div class="file-name">app.config.js</div>
+                <div class="file-desc">Configuración dinámica Expo</div>
+            </div>
+            <div class="file-card">
+                <div class="file-icon">📦</div>
+                <div class="file-name">package.json</div>
+                <div class="file-desc">Dependencias y scripts</div>
+            </div>
+            <div class="file-card">
+                <div class="file-icon">🏗️</div>
+                <div class="file-name">eas.json</div>
+                <div class="file-desc">Perfiles EAS Build</div>
+            </div>
+        </div>
+
+        <app-code-block filename="App.js" language="javascript" [code]="appJsExample"></app-code-block>
+    </section>
+
+    <section class="doc-section">
+        <h2>💻 Código Fuente (src/)</h2>
+
+        <h3>📡 src/api/</h3>
+        <p>Configuración del cliente de Supabase.</p>
+        <app-code-block filename="src/api/Supabase.js" language="javascript" [code]="supabaseExample"></app-code-block>
+
+        <h3>🎨 src/assets/</h3>
+        <p>Recursos estáticos: imágenes (banner.png, welcome.png) y fuentes (Poppins).</p>
+
+        <h3>🧩 src/components/</h3>
+        <p>Componentes React organizados por módulo: admin/, client/, vet/, shared/.</p>
+
+        <h3>🌐 src/context/</h3>
+        <p>Manejo de autenticación con <code>AuthContext.js</code></p>
+
+        <h3>🪝 src/hooks/</h3>
+        <p>Custom hooks para lógica reutilizable:</p>
+        <ul>
+            <li><code>useAppointments.js</code> - Gestión de citas</li>
+            <li><code>usePets.js</code> - Gestión de mascotas</li>
+            <li><code>useNotifications.js</code> - Notificaciones</li>
+            <li><code>hooks/admin/useAdminData.js</code> - Datos del admin</li>
+        </ul>
+
+        <app-code-block filename="Ejemplo: usePets.js" language="javascript" [code]="usePetsExample"></app-code-block>
+
+        <h3>📱 src/screens/</h3>
+        <p>Pantallas organizadas por módulo:</p>
+        <ul>
+            <li><strong>Auth/</strong> - Signin, Signup, ForgotPassword</li>
+            <li><strong>Client/</strong> - ClienteHome, MisMascotas, MisCitas</li>
+            <li><strong>Vet/</strong> - VeterinarioHome, AgendaDelDia, MisPacientes</li>
+            <li><strong>admin/</strong> - AdminHome, GestionVets, AdminStats</li>
+        </ul>
+
+        <h3>🎨 src/theme/</h3>
+        <p>Sistema de diseño centralizado.</p>
+        <app-code-block filename="src/theme/colors.js" language="javascript" [code]="colorsExample"></app-code-block>
+
+        <h3>🛠️ src/utils/</h3>
+        <p>Funciones auxiliares: validation.js, formatting.js, storage.js, errorHandler.js, etc.</p>
+    </section>
+
+    <section class="doc-section">
+        <h2>🧭 Flujo de Navegación</h2>
+
+        <div class="nav-flow">
+            <div class="nav-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Auth</h4>
+                    <p>Login/SignUp</p>
+                </div>
+            </div>
+            <div class="nav-arrow">→</div>
+            <div class="nav-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Role Detection</h4>
+                    <p>AuthContext</p>
+                </div>
+            </div>
+            <div class="nav-arrow">→</div>
+            <div class="nav-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Navigator</h4>
+                    <p>Client/Vet/Admin</p>
+                </div>
+            </div>
+        </div>
+
+        <app-code-block filename="Navegación típica" language="javascript" [code]="navigationExample"></app-code-block>
+    </section>
+
+    <section class="doc-section">
+        <h2>✨ Mejores Prácticas</h2>
+
+        <div class="practices-grid">
+            <div class="practice-card">
+                <h4>🏗️ Arquitectura Modular</h4>
+                <p>Separación clara por roles (Client/Vet/Admin) para escalabilidad.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>♻️ Componentes Reutilizables</h4>
+                <p>Carpeta <code>shared/</code> con componentes comunes optimizados.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>🪝 Custom Hooks</h4>
+                <p>Lógica de negocio separada en hooks reutilizables.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>🎨 Sistema de Diseño</h4>
+                <p>Theme centralizado con colores y estilos consistentes.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>⚡ Optimización</h4>
+                <p>OptimizedList, SkeletonLoader para mejor UX.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>🔒 Seguridad</h4>
+                <p>RLS en Supabase, validación en formularios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="doc-section">
+        <h2>⚡ Comandos Útiles</h2>
+        <app-code-block filename="Terminal Commands" language="bash" [code]="installCommands"></app-code-block>
+    </section>
+
+    <section class="doc-section">
+        <h2>📚 Recursos Adicionales</h2>
+        <ul>
+            <li><a routerLink="/developer/installation">Guía de Instalación</a> - Setup completo del entorno</li>
+            <li><a routerLink="/developer/api">API Reference</a> - Documentación de Supabase</li>
+            <li><a routerLink="/technical/database">Base de Datos</a> - Esquema y relaciones</li>
+            <li><a routerLink="/developer/contributing">Cómo Contribuir</a> - Guidelines de código</li>
+        </ul>
+    </section>
+</div>

@@ -1,0 +1,23 @@
+<div class="code-block">
+    @if (filename) {
+    <div class="code-header">
+        <span class="filename">{{ filename }}</span>
+        @if (language) {
+        <span class="language">{{ language }}</span>
+        }
+    </div>
+    }
+
+    <div class="code-container">
+        <button class="copy-btn" (click)="copyCode()" [attr.aria-label]="copied ? 'Copiado' : 'Copiar código'">
+            @if (copied) {
+            <span class="copy-icon">✓</span>
+            } @else {
+            <span class="copy-icon">📋</span>
+            }
+            <span class="copy-text">{{ copied ? 'Copiado!' : 'Copiar' }}</span>
+        </button>
+
+        <pre><code>{{ code }}</code></pre>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<header class="header">
+    <div class="header-container">
+        <!-- Mobile Menu Button -->
+        <button class="menu-btn" (click)="toggleSidebar()" aria-label="Toggle menu">
+            <span class="hamburger">☰</span>
+        </button>
+
+        <!-- Logo & Brand -->
+        <a routerLink="/home" class="brand">
+            <span class="logo">🐾</span>
+            <span class="brand-text">
+                <span class="brand-name">CuidaColitas</span>
+                <span class="brand-subtitle">Documentación</span>
+            </span>
+        </a>
+
+        <!-- Actions -->
+        <div class="header-actions">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" (click)="toggleTheme()"
+                [attr.aria-label]="themeService.theme() === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'">
+                @if (themeService.theme() === 'light') {
+                <span class="icon">🌙</span>
+                } @else {
+                <span class="icon">☀️</span>
+                }
+            </button>
+
+            <!-- GitHub Link -->
+            <a href="https://github.com/Alfredo-medrano/CuidaColitasAPP-UGB.git" target="_blank"
+                rel="noopener noreferrer" class="github-link" aria-label="Ver en GitHub">
+                <span class="icon">💻</span>
+            </a>
+        </div>
+    </div>
+</header>

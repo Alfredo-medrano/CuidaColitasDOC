@@ -1,0 +1,11 @@
+<div class="info-card" [attr.data-type]="type">
+    <div class="info-card-header">
+        <span class="info-icon">{{ icon }}</span>
+        @if (title) {
+        <h4 class="info-title">{{ title }}</h4>
+        }
+    </div>
+    <div class="info-card-content">
+        <ng-content></ng-content>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<aside class="sidebar" [class.open]="navService.sidebarOpen()">
+    <!-- Backdrop for mobile -->
+    <div class="sidebar-backdrop" [class.visible]="navService.sidebarOpen()" (click)="navService.closeSidebar()"></div>
+
+    <!-- Sidebar Content -->
+    <nav class="sidebar-content">
+        <div class="sidebar-header">
+            <h3>Navegación</h3>
+        </div>
+
+        <ul class="nav-list">
+            @for (item of navService.navItems(); track item.label) {
+            <li class="nav-item">
+                <!-- Item with children (expandable) -->
+                @if (item.children && item.children.length > 0) {
+                <button class="nav-link nav-parent" [class.expanded]="item.expanded" (click)="toggleItem(item.label)">
+                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-label">{{ item.label }}</span>
+                    <span class="expand-icon">{{ item.expanded ? '▼' : '▶' }}</span>
+                </button>
+
+                <!-- Children -->
+                @if (item.expanded) {
+                <ul class="nav-children">
+                    @for (child of item.children; track child.label) {
+                    <li>
+                        <a [routerLink]="child.route" routerLinkActive="active" class="nav-link nav-child"
+                            (click)="onLinkClick()">
+                            <span class="child-dot">•</span>
+                            {{ child.label }}
+                        </a>
+                    </li>
+                    }
+                </ul>
+                }
+                }
+
+                <!-- Item without children (direct link) -->
+                @else if (item.route) {
+                <a [routerLink]="item.route" routerLinkActive="active" class="nav-link" (click)="onLinkClick()">
+                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-label">{{ item.label }}</span>
+                </a>
+                }
+            </li>
+            }
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,423 @@
+.doc-page {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.doc-section {
+    margin-bottom: 3rem;
+}
+
+.doc-section h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.doc-section h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+/* Architecture Diagram */
+.architecture-diagram {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+}
+
+.layer {
+    margin-bottom: 2rem;
+}
+
+.layer-header {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.layer-header.client {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.layer-header.cloud {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.layer-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.layer-content.horizontal {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.component {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+.component small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+}
+
+.arrow-down {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 1.5rem 0;
+}
+
+.service {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.service-header {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.service ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+/* 3 Capas Grid */
+.layers-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.layer-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.layer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.layer-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.layer-number {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.layer-title h3 {
+    margin: 0;
+    font-size: 1.375rem;
+}
+
+.layer-subtitle {
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+}
+
+.layer-details h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.layer-details ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.layer-details li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Backend Components */
+.backend-components {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 2rem 0;
+}
+
+.backend-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.backend-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.backend-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+}
+
+.backend-card p {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.backend-card ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.backend-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Data Flow */
+.data-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    gap: 0.5rem;
+}
+
+.flow-step {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    width: 100%;
+    max-width: 600px;
+    transition: all 0.2s ease;
+}
+
+.flow-step:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.flow-number {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.flow-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.flow-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.flow-arrow {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Patterns Grid */
+.patterns-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pattern-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.pattern-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.pattern-desc {
+    font-style: italic;
+    color: var(--text-tertiary);
+    margin-bottom: 1rem;
+}
+
+.pattern-card p strong {
+    color: var(--text-primary);
+}
+
+/* Integrations */
+.integrations {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin: 2rem 0;
+}
+
+.integration-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.integration-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.integration-card p strong {
+    color: var(--primary-color);
+}
+
+.integration-card ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* Advantages Grid */
+.advantages-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 2rem 0;
+}
+
+.advantage-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.advantage-card h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+}
+
+.advantage-card p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+}
+
+/* Code */
+code {
+    background: var(--bg-tertiary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .layer-content,
+    .backend-components,
+    .integrations,
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .layers-grid {
+        gap: 1.5rem;
+    }
+
+    .flow-step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doc-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .doc-section h3 {
+        font-size: 1.25rem;
+    }
+}

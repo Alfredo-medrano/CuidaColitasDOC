@@ -1,0 +1,58 @@
+.doc-page {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.doc-section {
+    margin-bottom: 3rem;
+}
+
+.doc-section h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.doc-section h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.doc-section ul,
+.doc-section ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.doc-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.doc-section ul ul,
+.doc-section ol ul {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .doc-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .doc-section h3 {
+        font-size: 1.25rem;
+    }
+
+    .lead {
+        font-size: 1.125rem;
+    }
+}
