@@ -41,7 +41,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--text-tertiary);
+    color: var(--text-primary);
     margin: 0;
 }
 
@@ -61,7 +61,7 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.5rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     text-decoration: none;
     background: none;
     border: none;
@@ -75,14 +75,14 @@
 
 .nav-link:hover {
     background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    color: var(--accent-color);
     text-decoration: none;
 }
 
 .nav-link.active {
-    color: var(--primary-color);
+    color: var(--accent-color);
     background-color: var(--bg-secondary);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .nav-link.active::before {
@@ -107,7 +107,7 @@
 
 .expand-icon {
     font-size: 0.75rem;
-    color: var(--text-tertiary);
+    color: var(--text-primary);
     transition: transform 0.2s ease;
 }
 
@@ -142,7 +142,7 @@
 }
 
 .child-dot {
-    color: var(--text-tertiary);
+    color: var(--accent-color);
     margin-right: 0.5rem;
 }
 

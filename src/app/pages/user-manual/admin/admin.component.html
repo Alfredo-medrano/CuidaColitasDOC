@@ -1,0 +1,766 @@
+<div class="doc-page">
+    <h1>👔 Manual de Usuario - Administrador</h1>
+    <p class="lead">Guía completa de gestión y control del sistema CuidaColitasAPP</p>
+
+    <app-info-card type="warning" title="Control Total del Sistema 🔐">
+        <p>Como <strong>Administrador</strong>, usted tiene el control total sobre la plataforma CuidaColitasAPP. Este
+            manual le guiará en la gestión de usuarios (clientes y veterinarios), la configuración global del sistema y
+            la supervisión de la actividad operativa de la clínica.</p>
+    </app-info-card>
+
+    <!-- Introducción -->
+    <section class="doc-section">
+        <h2>1️⃣ Introducción</h2>
+        <p>El rol de Administrador es el nivel de acceso más alto en CuidaColitasAPP. Sus responsabilidades incluyen:
+        </p>
+
+        <div class="admin-responsibilities">
+            <div class="responsibility-card">
+                <span class="responsibility-icon">👥</span>
+                <h4>Gestión de Personal</h4>
+                <p>Crear, editar y desactivar cuentas de veterinarios y personal</p>
+            </div>
+            <div class="responsibility-card">
+                <span class="responsibility-icon">📊</span>
+                <h4>Supervisión Operativa</h4>
+                <p>Monitorear métricas, citas y rendimiento de la clínica</p>
+            </div>
+            <div class="responsibility-card">
+                <span class="responsibility-icon">⚙️</span>
+                <h4>Configuración Global</h4>
+                <p>Controlar parámetros del sistema y modo mantenimiento</p>
+            </div>
+            <div class="responsibility-card">
+                <span class="responsibility-icon">🔍</span>
+                <h4>Auditoría y Seguridad</h4>
+                <p>Revisar logs de actividad y detectar anomalías</p>
+            </div>
+        </div>
+
+        <app-info-card type="tip" title="Principio de Responsabilidad">
+            <p>Con gran poder viene gran responsabilidad. Use estas herramientas con prudencia y siempre documente
+                cambios críticos en el sistema.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Panel de Control -->
+    <section class="doc-section">
+        <h2>2️⃣ Panel de Control (Dashboard)</h2>
+        <p>Al iniciar sesión, accederá a <code>AdminHome</code>, su <strong>centro de operaciones estratégico</strong>.
+        </p>
+
+        <h3>2.1. Métricas Clave (AdminStats)</h3>
+        <p>En la parte superior del dashboard, encontrará tarjetas con <strong>indicadores en tiempo real</strong>:</p>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">👥</div>
+                <h4>Total de Usuarios</h4>
+                <p>Conteo de clientes y veterinarios activos en el sistema</p>
+                <ul>
+                    <li>Desglose por rol</li>
+                    <li>Usuarios activos vs inactivos</li>
+                    <li>Nuevos registros del mes</li>
+                </ul>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📅</div>
+                <h4>Citas del Mes</h4>
+                <p>Volumen de atención del período actual</p>
+                <ul>
+                    <li>Total de citas agendadas</li>
+                    <li>Citas completadas</li>
+                    <li>Tasa de cancelación</li>
+                    <li>Comparativa con mes anterior</li>
+                </ul>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🐾</div>
+                <h4>Pacientes Registrados</h4>
+                <p>Total de mascotas en la base de datos</p>
+                <ul>
+                    <li>Desglose por especie</li>
+                    <li>Pacientes activos</li>
+                    <li>Nuevos pacientes del mes</li>
+                </ul>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">💰</div>
+                <h4>Ingresos (Opcional)</h4>
+                <p>Si se activa el módulo financiero</p>
+                <ul>
+                    <li>Ingresos del mes</li>
+                    <li>Servicios más solicitados</li>
+                    <li>Proyecciones</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>2.2. Acciones Rápidas</h3>
+        <p>Botones de acceso directo para tareas frecuentes:</p>
+        <ul>
+            <li><strong>"Registrar Veterinario":</strong> Crear nueva cuenta de personal médico</li>
+            <li><strong>"Ver Reportes":</strong> Acceso a estadísticas detalladas</li>
+            <li><strong>"Configuración Global":</strong> Ajustes del sistema</li>
+            <li><strong>"Auditoría":</strong> Revisar logs de actividad</li>
+            <li><strong>"Gestionar Clientes":</strong> Administración de usuarios</li>
+        </ul>
+
+        <app-info-card type="info" title="Actualización en Tiempo Real">
+            <p>Las métricas se actualizan automáticamente cada 30 segundos. También puede refrescar manualmente
+                deslizando hacia abajo.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Gestión de Veterinarios -->
+    <section class="doc-section">
+        <h2>3️⃣ Gestión de Recursos Humanos (Veterinarios)</h2>
+        <p><strong>Usted es el único autorizado</strong> para dar de alta al personal médico.</p>
+
+        <h3>3.1. Crear Cuenta de Veterinario</h3>
+        <p>Proceso paso a paso para incorporar nuevo personal:</p>
+
+        <ol>
+            <li>Vaya a la sección <strong>"Gestión de Veterinarios"</strong> (<code>GestionVets</code>)</li>
+            <li>Presione el botón <strong>"+ Nuevo Veterinario"</strong> (<code>NewVetModal</code>)</li>
+            <li>Complete el formulario obligatorio:</li>
+        </ol>
+
+        <div class="form-detail">
+            <h4>📋 Campos Obligatorios:</h4>
+            <ul>
+                <li><strong>Nombre y Apellido:</strong> Nombre completo del profesional</li>
+                <li><strong>Especialidad:</strong> Seleccione de la lista:
+                    <ul>
+                        <li>Medicina General</li>
+                        <li>Cirugía</li>
+                        <li>Dermatología</li>
+                        <li>Cardiología</li>
+                        <li>Oftalmología</li>
+                        <li>Oncología</li>
+                        <li>Anestesiología</li>
+                        <li>Otra (especificar)</li>
+                    </ul>
+                </li>
+                <li><strong>Correo Electrónico Corporativo:</strong> Email que usará para acceder al sistema
+                    <br><em>Ejemplo: dr.garcia@clinicaveterinaria.com</em>
+                </li>
+                <li><strong>Contraseña Temporal:</strong> Cree una contraseña segura inicial
+                    <ul>
+                        <li>Mínimo 8 caracteres</li>
+                        <li>Combinación de letras y números</li>
+                        <li><strong>Importante:</strong> El veterinario deberá cambiarla en su primer ingreso</li>
+                    </ul>
+                </li>
+                <li><strong>Teléfono:</strong> Número de contacto del profesional</li>
+                <li><strong>Número de Licencia:</strong> Registro profesional (opcional)</li>
+            </ul>
+        </div>
+
+        <div class="form-detail">
+            <h4>🕐 Configuración de Horario de Trabajo:</h4>
+            <p>Defina los turnos disponibles del veterinario. Esto determinará cuándo los clientes pueden solicitar
+                citas con él/ella.</p>
+
+            <h5>Ejemplo de Configuración:</h5>
+            <ul>
+                <li><strong>Lunes - Viernes:</strong> 8:00 AM - 12:00 PM y 2:00 PM - 6:00 PM</li>
+                <li><strong>Sábados:</strong> 9:00 AM - 1:00 PM</li>
+                <li><strong>Domingos:</strong> No disponible</li>
+            </ul>
+
+            <p>Puede configurar horarios diferentes para cada día de la semana.</p>
+        </div>
+
+        <ol start="4">
+            <li>Presione <strong>"Guardar"</strong></li>
+            <li>El sistema enviará las credenciales al correo del veterinario automáticamente</li>
+            <li>El veterinario recibirá <strong>acceso inmediato</strong> a su panel profesional</li>
+        </ol>
+
+        <app-info-card type="success" title="Cuenta Creada">
+            <p>Una vez guardado, el nuevo veterinario aparecerá en el listado de personal y podrá iniciar sesión
+                inmediatamente desde cualquier dispositivo.</p>
+        </app-info-card>
+
+        <h3>3.2. Editar Personal Existente</h3>
+        <p>Para modificar información de un veterinario ya registrado:</p>
+
+        <ol>
+            <li>En la lista de veterinarios, busque al profesional</li>
+            <li>Presione el botón <strong>"Editar"</strong> (<code>EditVet</code>)</li>
+            <li>Modifique los campos necesarios:
+                <ul>
+                    <li>Cambiar especialidad</li>
+                    <li>Actualizar horarios</li>
+                    <li>Modificar teléfono o correo</li>
+                    <li>Restablecer contraseña (si la olvidó)</li>
+                </ul>
+            </li>
+            <li>Guarde los cambios</li>
+        </ol>
+
+        <h3>3.3. Desactivar o Reactivar Personal</h3>
+        <p>Si un médico:</p>
+        <ul>
+            <li>Cambia de horario temporalmente (vacaciones)</li>
+            <li>Sale de licencia médica</li>
+            <li>Deja la clínica definitivamente</li>
+        </ul>
+
+        <h4>Proceso de Desactivación:</h4>
+        <ol>
+            <li>Búsquelo en la lista de veterinarios</li>
+            <li>Use el interruptor <strong>"Activo/Inactivo"</strong></li>
+            <li>Confirme la acción</li>
+        </ol>
+
+        <app-info-card type="info" title="Desactivación vs Eliminación">
+            <p><strong>Importante:</strong> Desactivar NO elimina al veterinario ni su historial de atenciones. Solo
+                <strong>bloquea su acceso</strong> temporalmente. Esto preserva la integridad del historial médico de
+                los pacientes que atendió.</p>
+        </app-info-card>
+
+        <h4>Efectos de la Desactivación:</h4>
+        <ul>
+            <li>❌ El veterinario no puede iniciar sesión</li>
+            <li>❌ No aparece en opciones para agendar nuevas citas</li>
+            <li>✅ Sus citas pasadas permanecen en el sistema</li>
+            <li>✅ Los historiales médicos que creó se mantienen intactos</li>
+            <li>✅ Puede reactivarse en cualquier momento</li>
+        </ul>
+    </section>
+
+    <!-- Gestión de Clientes -->
+    <section class="doc-section">
+        <h2>4️⃣ Gestión de Clientes y Mascotas</h2>
+
+        <h3>4.1. Supervisión de Clientes</h3>
+        <p>En la sección <strong>"Gestión de Clientes"</strong> (<code>GestionClientes</code>), usted tiene control
+            completo sobre los usuarios propietarios de mascotas.</p>
+
+        <h4>Funciones Disponibles:</h4>
+
+        <div class="client-management">
+            <div class="management-item">
+                <h5>👀 Ver Lista Completa</h5>
+                <ul>
+                    <li>Todos los dueños registrados</li>
+                    <li>Estado de cuenta (activo/inactivo)</li>
+                    <li>Fecha de registro</li>
+                    <li>Número de mascotas asociadas</li>
+                </ul>
+            </div>
+
+            <div class="management-item">
+                <h5>🔍 Búsqueda Avanzada</h5>
+                <p>Filtrar por múltiples criterios:</p>
+                <ul>
+                    <li><strong>Nombre:</strong> Búsqueda por nombre del cliente</li>
+                    <li><strong>Correo:</strong> Buscar por email</li>
+                    <li><strong>Teléfono:</strong> Localizar por número</li>
+                    <li><strong>Estado:</strong> Activos, inactivos, bloqueados</li>
+                </ul>
+            </div>
+
+            <div class="management-item">
+                <h5>📄 Detalle del Cliente</h5>
+                <p>Al seleccionar un cliente, accede a <code>DetalleCliente</code> donde puede ver:</p>
+                <ul>
+                    <li>Información personal completa</li>
+                    <li>Lista de mascotas registradas</li>
+                    <li>Historial de citas (pasadas y futuras)</li>
+                    <li>Actividad en el sistema</li>
+                    <li>Mensajes enviados</li>
+                </ul>
+            </div>
+
+            <div class="management-item">
+                <h5>🚫 Bloqueo de Usuarios</h5>
+                <p><strong>Cuándo bloquear un cliente:</strong></p>
+                <ul>
+                    <li>Cancelaciones repetidas sin aviso</li>
+                    <li>Comportamiento inapropiado con el personal</li>
+                    <li>Incumplimiento de pagos (si aplica)</li>
+                    <li>Violación de términos de servicio</li>
+                </ul>
+
+                <p><strong>Efecto del bloqueo:</strong></p>
+                <ul>
+                    <li>❌ No puede solicitar nuevas citas</li>
+                    <li>❌ No puede enviar mensajes</li>
+                    <li>✅ Puede ver historial médico de sus mascotas</li>
+                    <li>🔄 Se puede revertir en cualquier momento</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>4.2. Control de Mascotas</h3>
+        <p>En <strong>"Gestión de Mascotas"</strong> (<code>GestionMascotas</code>), tiene una vista global de todos los
+            pacientes veterinarios.</p>
+
+        <h4>Capacidades Administrativas:</h4>
+        <ul>
+            <li><strong>Ver todas las mascotas:</strong> Lista completa sin restricciones</li>
+            <li><strong>Buscar pacientes:</strong> Por nombre, propietario, especie o raza</li>
+            <li><strong>Corregir datos:</strong> Editar información que ni el cliente ni el veterinario pueden modificar
+                <ul>
+                    <li>Ejemplo: Corregir "Pastor Aleman" a "Pastor Alemán"</li>
+                    <li>Ejemplo: Actualizar fecha de nacimiento incorrecta</li>
+                    <li>Ejemplo: Cambiar especie si se registró mal</li>
+                </ul>
+            </li>
+            <li><strong>Transferir propiedad:</strong> Cambiar dueño de una mascota si cambia de propietario</li>
+            <li><strong>Ver historial completo:</strong> Acceso a todos los expedientes médicos</li>
+        </ul>
+
+        <app-info-card type="warning" title="Ediciones con Responsabilidad">
+            <p>Las correcciones administrativas quedan registradas en logs. Documente siempre el motivo de
+                modificaciones importantes en datos médicos.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Calendario Maestro -->
+    <section class="doc-section">
+        <h2>5️⃣ Calendario Maestro y Citas</h2>
+        <p>A diferencia del veterinario que ve solo su agenda personal, <strong>usted ve toda la operación</strong> de
+            la clínica en un solo lugar.</p>
+
+        <h3>5.1. Calendario Global (CalendarioMaestro)</h3>
+        <p>El calendario maestro es su herramienta de <strong>supervisión y control operativo</strong>.</p>
+
+        <h4>Visualización:</h4>
+        <ul>
+            <li>📅 <strong>Vista Diaria:</strong> Todas las citas del día, todos los veterinarios</li>
+            <li>📆 <strong>Vista Semanal:</strong> Panorama completo de la semana</li>
+            <li>🗓️ <strong>Vista Mensual:</strong> Para planificación a largo plazo</li>
+        </ul>
+
+        <h4>Codificación por Colores:</h4>
+        <ul>
+            <li>🟡 <strong>Amarillo:</strong> Citas pendientes de confirmación</li>
+            <li>🟢 <strong>Verde:</strong> Citas confirmadas</li>
+            <li>🔵 <strong>Azul:</strong> Citas en proceso (paciente atendido)</li>
+            <li>⚫ <strong>Gris:</strong> Citas completadas</li>
+            <li>🔴 <strong>Rojo:</strong> Citas canceladas</li>
+        </ul>
+
+        <h4>Filtros Disponibles:</h4>
+        <ul>
+            <li><strong>Por Estado:</strong> Pendientes, Confirmadas, Canceladas</li>
+            <li><strong>Por Veterinario:</strong> Ver agenda de un médico específico</li>
+            <li><strong>Por Tipo de Servicio:</strong> Consultas, Cirugías, Emergencias</li>
+            <li><strong>Por Fecha:</strong> Rango de fechas personalizado</li>
+        </ul>
+
+        <h3>5.2. Gestión de Citas Conflictivas</h3>
+        <p>Como administrador, puede intervenir en situaciones especiales:</p>
+
+        <h4>Escenario 1: Veterinario Ausente por Enfermedad</h4>
+        <ol>
+            <li>Identifique las citas del médico ausente</li>
+            <li>Seleccione cada cita afectada</li>
+            <li>Presione <strong>"Reasignar Cita"</strong></li>
+            <li>Elija otro veterinario disponible</li>
+            <li>Confirme la reasignación</li>
+            <li>El sistema notificará automáticamente al cliente del cambio</li>
+        </ol>
+
+        <h4>Escenario 2: Emergencia sin Cita Programada</h4>
+        <ol>
+            <li>Cree una cita manual de tipo "Emergencia"</li>
+            <li>Asigne al veterinario de guardia</li>
+            <li>Ajuste el horario si es necesario (puede sobrescribir restricciones)</li>
+        </ol>
+
+        <h4>Escenario 3: Doble Reserva (Error del Sistema)</h4>
+        <ol>
+            <li>Identifique el conflicto en el calendario</li>
+            <li>Contacte a uno de los clientes para reprogramar</li>
+            <li>Modifique la cita manualmente</li>
+            <li>Documente el incidente para análisis técnico</li>
+        </ol>
+
+        <h3>5.3. Aprobación Manual de Citas</h3>
+        <p>Si configura el sistema para que ciertas citas requieran validación administrativa:</p>
+
+        <ol>
+            <li>Las solicitudes aparecerán en <strong>"Pendientes de Aprobación"</strong></li>
+            <li>Revise los detalles (motivo, urgencia, disponibilidad)</li>
+            <li>Opciones:
+                <ul>
+                    <li><strong>"Aprobar":</strong> La cita se confirma automáticamente</li>
+                    <li><strong>"Rechazar":</strong> Indique el motivo (cliente recibirá notificación)</li>
+                    <li><strong>"Modificar":</strong> Cambie fecha/hora y apruebe</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- Configuración del Sistema -->
+    <section class="doc-section">
+        <h2>6️⃣ Configuración del Sistema</h2>
+        <p>La sección <code>ConfiguracionSistema</code> controla el <strong>comportamiento técnico y operativo</strong>
+            de toda la plataforma.</p>
+
+        <h3>6.1. Modo Mantenimiento</h3>
+        <app-info-card type="warning" title="⚠️ Función Crítica - Usar con Precaución">
+            <p>El Modo Mantenimiento <strong>bloquea el acceso</strong> de todos los usuarios no administradores a la
+                aplicación.</p>
+        </app-info-card>
+
+        <h4>Cómo Activar:</h4>
+        <ol>
+            <li>Vaya a <strong>"Configuración del Sistema"</strong></li>
+            <li>Localice el interruptor <strong>"Modo Mantenimiento"</strong></li>
+            <li>Active el switch</li>
+            <li>Opcional: Agregue un mensaje personalizado que verán los usuarios
+                <br><em>Ejemplo: "Sistema en mantenimiento. Volveremos en 2 horas. Disculpe las molestias."</em>
+            </li>
+            <li>Confirme la activación</li>
+        </ol>
+
+        <h4>Efecto Inmediato:</h4>
+        <ul>
+            <li>Todos los <strong>Clientes</strong> verán la pantalla <code>MaintenanceScreen</code></li>
+            <li>Todos los <strong>Veterinarios</strong> también serán bloqueados</li>
+            <li>Solo <strong>Administradores</strong> pueden acceder al sistema</li>
+            <li>No se pueden agendar citas ni enviar mensajes</li>
+        </ul>
+
+        <h4>Cuándo Usar Modo Mantenimiento:</h4>
+        <ul>
+            <li>🔧 <strong>Actualizaciones críticas de servidor:</strong> Cuando se actualiza la base de datos</li>
+            <li>🐛 <strong>Reparación de errores graves:</strong> Para evitar pérdida de datos</li>
+            <li>⚡ <strong>Migraciones de datos:</strong> Durante transferencias o respaldos importantes</li>
+            <li>🚨 <strong>Emergencias de seguridad:</strong> Si se detecta un acceso no autorizado</li>
+        </ul>
+
+        <app-info-card type="tip" title="Comunicación Previa">
+            <p><strong>Buena práctica:</strong> Notifique al personal con al menos 24 horas de anticipación antes de
+                activar el modo mantenimiento, salvo emergencias.</p>
+        </app-info-card>
+
+        <h3>6.2. Ajustes Generales</h3>
+
+        <h4>Gestión de Roles y Permisos</h4>
+        <p>Configure qué puede hacer cada tipo de usuario:</p>
+        <ul>
+            <li><strong>Cliente:</strong> Ver, Agendar, Chatear (NO editar historiales)</li>
+            <li><strong>Veterinario:</strong> Ver, Editar historiales, Gestionar agenda propia</li>
+            <li><strong>Administrador:</strong> Control total</li>
+        </ul>
+
+        <h4>Notificaciones Globales</h4>
+        <p>Enviar avisos masivos a todos los usuarios del sistema:</p>
+        <ol>
+            <li>Vaya a <strong>"Notificaciones Globales"</strong></li>
+            <li>Redacte el mensaje:
+                <br><em>Ejemplo: "La clínica estará cerrada el 25 de diciembre por feriado"</em>
+            </li>
+            <li>Seleccione destinatarios:
+                <ul>
+                    <li>Todos los usuarios</li>
+                    <li>Solo clientes</li>
+                    <li>Solo veterinarios</li>
+                </ul>
+            </li>
+            <li>Envíe la notificación push</li>
+        </ol>
+
+        <h4>Parámetros Operativos</h4>
+        <ul>
+            <li><strong>Duración predeterminada de citas:</strong> 30 min, 45 min, 1 hora</li>
+            <li><strong>Horario de la clínica:</strong> Horario general de apertura y cierre</li>
+            <li><strong>Días festivos:</strong> Bloquear días no laborables</li>
+            <li><strong>Tiempo de anticipación mínimo:</strong> No permitir citas con menos de X horas de antelación
+            </li>
+            <li><strong>Política de cancelación:</strong> Plazo mínimo para cancelar sin penalización</li>
+        </ul>
+    </section>
+
+    <!-- Auditoría y Seguridad -->
+    <section class="doc-section">
+        <h2>7️⃣ Auditoría y Seguridad (AdminLogs)</h2>
+        <p>Para mantener la <strong>transparencia y seguridad</strong> de la clínica, el sistema registra todas las
+            acciones importantes.</p>
+
+        <h3>7.1. Registro de Actividad</h3>
+        <p>En la sección <strong>"Logs de Auditoría"</strong> (<code>AdminLogs</code>), puede consultar un historial
+            completo de eventos.</p>
+
+        <h4>Tipos de Eventos Registrados:</h4>
+        <ul>
+            <li>🔐 <strong>Autenticación:</strong> Inicios de sesión exitosos y fallidos</li>
+            <li>👥 <strong>Gestión de Usuarios:</strong> Creación, edición, desactivación de cuentas</li>
+            <li>📅 <strong>Citas:</strong> Creación, modificación, cancelación, reasignación</li>
+            <li>📋 <strong>Expedientes Médicos:</strong> Quién agregó/modificó registros</li>
+            <li>⚙️ <strong>Configuración:</strong> Cambios en ajustes del sistema</li>
+            <li>📁 <strong>Archivos:</strong> Subidas y descargas de documentos</li>
+        </ul>
+
+        <h4>Información de Cada Log:</h4>
+        <ul>
+            <li><strong>Usuario:</strong> Quién realizó la acción</li>
+            <li><strong>Acción:</strong> Qué hizo (crear, editar, eliminar)</li>
+            <li><strong>Objeto:</strong> Sobre qué (paciente, cita, usuario)</li>
+            <li><strong>Fecha y Hora:</strong> Timestamp exacto</li>
+            <li><strong>IP:</strong> Dirección desde donde se conectó</li>
+            <li><strong>Detalles:</strong> Información adicional del cambio</li>
+        </ul>
+
+        <h4>Ejemplo de Log:</h4>
+        <div class="log-example">
+            <code>
+                [2024-03-15 14:23:45] Dr. Juan Pérez (veterinario@clinica.com) - IP: 192.168.1.100<br>
+                ACCIÓN: Eliminó cita #1547<br>
+                PACIENTE: Max (ID: 342)<br>
+                MOTIVO: Cancelación a solicitud del propietario
+            </code>
+        </div>
+
+        <h4>Filtros y Búsqueda:</h4>
+        <ul>
+            <li><strong>Por Usuario:</strong> Ver todas las acciones de una persona específica</li>
+            <li><strong>Por Tipo de Acción:</strong> Solo creaciones, solo eliminaciones, etc.</li>
+            <li><strong>Por Fecha:</strong> Rango de fechas personalizado</li>
+            <li><strong>Por Objeto:</strong> Eventos relacionados a un paciente o cita específica</li>
+        </ul>
+
+        <h3>7.2. Alertas de Seguridad</h3>
+        <p>El sistema detecta y notifica automáticamente comportamientos inusuales:</p>
+
+        <div class="security-alerts">
+            <div class="alert-type">
+                <h4>🚨 Intentos de Acceso Fallidos</h4>
+                <p><strong>Alerta si:</strong> Un usuario intenta ingresar con contraseña incorrecta más de 5 veces</p>
+                <p><strong>Acción sugerida:</strong> Verificar si es el usuario legítimo que olvidó su contraseña o un
+                    intento de acceso no autorizado</p>
+            </div>
+
+            <div class="alert-type">
+                <h4>⏰ Actividad Fuera de Horario</h4>
+                <p><strong>Alerta si:</strong> Acceso al sistema en horarios inusuales (madrugada, fines de semana)</p>
+                <p><strong>Acción sugerida:</strong> Confirmar con el usuario si fue legítimo</p>
+            </div>
+
+            <div class="alert-type">
+                <h4>📍 Ubicación Inusual</h4>
+                <p><strong>Alerta si:</strong> Inicio de sesión desde una IP geográficamente distante</p>
+                <p><strong>Acción sugerida:</strong> Verificar con el usuario, cambiar contraseña si es sospechoso</p>
+            </div>
+
+            <div class="alert-type">
+                <h4>🔄 Actividad Masiva</h4>
+                <p><strong>Alerta si:</strong> Muchas acciones en poco tiempo (posible compromiso de cuenta)</p>
+                <p><strong>Acción sugerida:</strong> Bloquear cuenta temporalmente e investigar</p>
+            </div>
+        </div>
+
+        <app-info-card type="warning" title="Respaldo Legal">
+            <p>Los logs de auditoría sirven como <strong>evidencia legal</strong> en caso de disputas. Se conservan por
+                al menos 2 años según normativas de datos médicos.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Comunicación Interna -->
+    <section class="doc-section">
+        <h2>8️⃣ Comunicación Interna</h2>
+
+        <h3>8.1. Mensajes Administrativos</h3>
+        <p>Canal directo para comunicarse con el personal veterinario:</p>
+
+        <h4>Casos de Uso:</h4>
+        <ul>
+            <li>📢 <strong>Anuncios importantes:</strong> "Reunión de equipo mañana a las 10 AM"</li>
+            <li>📋 <strong>Cambios de protocolo:</strong> "Nuevo procedimiento para cirugías"</li>
+            <li>🎉 <strong>Reconocimientos:</strong> "Felicitaciones al Dr. García por excelente desempeño"</li>
+            <li>⚠️ <strong>Alertas:</strong> "Sistema de pagos temporalmente fuera de servicio"</li>
+        </ul>
+
+        <h4>Cómo Enviar:</h4>
+        <ol>
+            <li>Vaya a <strong>"Mensajes Administrativos"</strong></li>
+            <li>Redacte el mensaje</li>
+            <li>Seleccione destinatarios:
+                <ul>
+                    <li>Todos los veterinarios</li>
+                    <li>Veterinario específico</li>
+                    <li>Grupo por especialidad</li>
+                </ul>
+            </li>
+            <li>Marque prioridad (Normal, Alta, Urgente)</li>
+            <li>Envíe</li>
+        </ol>
+
+        <p>Los mensajes aparecerán como <strong>notificaciones destacadas</strong> en el panel del veterinario.</p>
+    </section>
+
+    <!-- FAQ Administración -->
+    <section class="doc-section">
+        <h2>9️⃣ Preguntas Frecuentes de Administración</h2>
+
+        <div class="faq-item">
+            <h3>¿Cómo recupero la contraseña de un veterinario?</h3>
+            <p><strong>Respuesta:</strong> Por razones de seguridad, las contraseñas están <strong>encriptadas</strong>
+                y no se pueden "ver". Debe generar una nueva:</p>
+            <ol>
+                <li>Vaya a "Gestión de Veterinarios"</li>
+                <li>Seleccione al médico</li>
+                <li>Presione "Editar"</li>
+                <li>En el campo "Contraseña", ingrese una nueva contraseña temporal</li>
+                <li>Guarde los cambios</li>
+                <li>Comunique la nueva contraseña al veterinario por un canal seguro</li>
+                <li>Indíquele que la cambie inmediatamente tras ingresar</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Puedo borrar un historial médico por error?</h3>
+            <p><strong>Respuesta:</strong> El sistema está diseñado para <strong>preservar la integridad legal</strong>
+                de los datos clínicos.</p>
+            <ul>
+                <li>Las eliminaciones suelen ser <strong>"lógicas"</strong> (ocultar) en lugar de físicas (borrar)</li>
+                <li>Los registros médicos se marcan como "archivados" pero permanecen en la base de datos</li>
+                <li>Solo el desarrollador del sistema con acceso directo a la base de datos podría hacer eliminaciones
+                    físicas</li>
+                <li><strong>Motivo:</strong> Cumplimiento de normativas de conservación de historias clínicas</li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Qué hago si la app falla o tiene errores graves?</h3>
+            <p><strong>Protocolo de emergencia:</strong></p>
+            <ol>
+                <li><strong>Paso 1:</strong> Active inmediatamente el <strong>"Modo Mantenimiento"</strong>
+                    <ul>
+                        <li>Esto evita que los usuarios generen más errores</li>
+                        <li>Protege la integridad de los datos</li>
+                    </ul>
+                </li>
+                <li><strong>Paso 2:</strong> Documente el error:
+                    <ul>
+                        <li>Qué estaba haciendo cuando ocurrió</li>
+                        <li>Mensaje de error exacto (capture pantalla)</li>
+                        <li>Horario del incidente</li>
+                    </ul>
+                </li>
+                <li><strong>Paso 3:</strong> Contacte al soporte técnico/desarrollador:
+                    <ul>
+                        <li>Email: desarrollo@cuidacolitas.com</li>
+                        <li>Teléfono de emergencias: (Si aplica)</li>
+                        <li>Proporcione toda la información recopilada</li>
+                    </ul>
+                </li>
+                <li><strong>Paso 4:</strong> Solo desactive el modo mantenimiento cuando el soporte confirme que se
+                    solucionó</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Cómo genero reportes de rendimiento de la clínica?</h3>
+            <p><strong>Respuesta:</strong> Vaya a la sección <strong>"Reportes y Estadísticas"</strong> donde puede
+                generar:</p>
+            <ul>
+                <li>📊 Reporte mensual de citas por veterinario</li>
+                <li>📈 Gráfico de crecimiento de pacientes</li>
+                <li>💰 Análisis de servicios más solicitados</li>
+                <li>📅 Tasa de ocupación de agenda</li>
+                <li>⭐ Satisfacción del cliente (si hay encuestas)</li>
+            </ul>
+            <p>Puede exportar los reportes en formato <strong>PDF o Excel</strong> para presentaciones.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Puedo dar permisos de administrador a un veterinario?</h3>
+            <p><strong>Respuesta:</strong> Sí, pero con precaución:</p>
+            <ol>
+                <li>Vaya a "Gestión de Veterinarios"</li>
+                <li>Seleccione al médico de confianza</li>
+                <li>En "Editar", active el switch <strong>"Permisos Administrativos"</strong></li>
+                <li>Seleccione qué permisos específicos tendrá (puede ser parcial)</li>
+            </ol>
+            <app-info-card type="warning" title="Recomendación">
+                <p>Solo otorgue permisos administrativos a personal de <strong>máxima confianza</strong>. Considere dar
+                    permisos limitados en lugar de acceso total.</p>
+            </app-info-card>
+        </div>
+    </section>
+
+    <!-- Mejores Prácticas -->
+    <section class="doc-section">
+        <h2>📌 Mejores Prácticas de Administración</h2>
+
+        <div class="best-practices">
+            <div class="practice-card">
+                <h4>✅ Revisión Periódica de Logs</h4>
+                <p>Revise los logs de auditoría al menos <strong>una vez por semana</strong> para detectar anomalías
+                    temprano.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>✅ Respaldos Regulares</h4>
+                <p>Aunque el sistema hace respaldos automáticos, verifique mensualmente que funcionan correctamente.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>✅ Comunicación Clara</h4>
+                <p>Mantenga informado al equipo de cambios importantes con al menos 48 horas de anticipación.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>✅ Política de Contraseñas</h4>
+                <p>Exija cambio de contraseñas cada 3 meses para todo el personal.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>✅ Capacitación Continua</h4>
+                <p>Asegúrese de que nuevos veterinarios reciban capacitación sobre el uso del sistema.</p>
+            </div>
+
+            <div class="practice-card">
+                <h4>✅ Documentación de Cambios</h4>
+                <p>Mantenga un registro escrito de configuraciones importantes que modifique.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soporte -->
+    <section class="doc-section">
+        <h2>📞 Soporte Técnico y Contacto</h2>
+        <p>Para asistencia técnica o consultas administrativas:</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <span class="contact-icon">🛠️</span>
+                <h4>Soporte Técnico</h4>
+                <p>desarrollo@cuidacolitas.com</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">📱</span>
+                <h4>Teléfono Urgencias</h4>
+                <p>+503 1234-5678</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">📚</span>
+                <h4>Documentación</h4>
+                <p><a href="/developer/architecture">Ver Arquitectura</a></p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">💬</span>
+                <h4>Chat de Soporte</h4>
+                <p>Disponible en la app</p>
+            </div>
+        </div>
+    </section>
+
+    <app-info-card type="success" title="Responsabilidad Administrativa 👔">
+        <p>Como Administrador, su rol es <strong>vital para que la clínica fluya sin problemas</strong>. Use estas
+            herramientas con responsabilidad y siempre priorice la <strong>seguridad de los datos</strong> y la
+            <strong>privacidad de los pacientes</strong>.</p>
+        <p><em>¡Gracias por mantener CuidaColitasAPP funcionando de manera óptima!</em></p>
+    </app-info-card>
+</div>

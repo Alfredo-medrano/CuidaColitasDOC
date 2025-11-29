@@ -1,0 +1,707 @@
+<div class="doc-page">
+    <h1>🩺 Manual de Usuario - Veterinario</h1>
+    <p class="lead">Guía profesional para médicos veterinarios usando CuidaColitasAPP</p>
+
+    <app-info-card type="info" title="Panel Profesional 👨‍⚕️">
+        <p>Este módulo está diseñado específicamente para optimizar su flujo de trabajo clínico, permitiéndole gestionar
+            expedientes médicos, controlar su agenda diaria y comunicarse con los propietarios de manera eficiente desde
+            su dispositivo móvil.</p>
+    </app-info-card>
+
+    <!-- Introducción -->
+    <section class="doc-section">
+        <h2>1️⃣ Introducción</h2>
+        <p>Bienvenido al módulo profesional de CuidaColitasAPP. Este panel centraliza todas las herramientas que
+            necesita para:</p>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🐾</span>
+                <h4>Gestionar Pacientes</h4>
+                <p>Acceso completo a expedientes médicos digitales</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📅</span>
+                <h4>Controlar Agenda</h4>
+                <p>Visualice y gestione citas del día</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💉</span>
+                <h4>Registrar Atenciones</h4>
+                <p>Documente vacunas, medicamentos y visitas</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💬</span>
+                <h4>Comunicación</h4>
+                <p>Chat directo con propietarios de mascotas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acceso y Seguridad -->
+    <section class="doc-section">
+        <h2>2️⃣ Acceso y Seguridad</h2>
+
+        <h3>2.1. Credenciales de Acceso</h3>
+        <app-info-card type="warning" title="Importante - Cuenta Profesional">
+            <p>A diferencia de los clientes, <strong>usted no puede auto-registrarse</strong>. Su cuenta es creada y
+                proporcionada por el <strong>Administrador del Sistema</strong>.</p>
+        </app-info-card>
+
+        <h4>Cómo Obtener su Cuenta:</h4>
+        <ol>
+            <li>El administrador de la clínica creará su perfil profesional</li>
+            <li>Recibirá sus credenciales (correo y contraseña temporal) directamente de la administración</li>
+            <li>Las credenciales llegarán por correo electrónico o se le entregarán en persona</li>
+        </ol>
+
+        <h3>2.2. Primer Ingreso</h3>
+        <ol>
+            <li>Abra la aplicación CuidaColitasAPP</li>
+            <li>Ingrese su <strong>correo electrónico</strong> proporcionado</li>
+            <li>Ingrese su <strong>contraseña temporal</strong></li>
+            <li>Presione <strong>"Iniciar Sesión"</strong></li>
+        </ol>
+
+        <app-info-card type="tip" title="Recomendación de Seguridad">
+            <p><strong>Primer paso obligatorio:</strong> Diríjase inmediatamente a su <strong>Perfil</strong> y cambie
+                su contraseña temporal por una segura y personal. Esto garantiza la confidencialidad de la información
+                médica que maneja.</p>
+        </app-info-card>
+
+        <h3>Requisitos de Contraseña Segura:</h3>
+        <ul>
+            <li>Mínimo 8 caracteres</li>
+            <li>Combinación de letras mayúsculas y minúsculas</li>
+            <li>Al menos un número</li>
+            <li>Caracteres especiales (recomendado)</li>
+            <li>No compartir con terceros</li>
+        </ul>
+    </section>
+
+    <!-- Panel de Control -->
+    <section class="doc-section">
+        <h2>3️⃣ Panel de Control (Home)</h2>
+        <p>Su pantalla de inicio (<code>VeterinarioHome</code>) es su <strong>centro de mando</strong> para el día a
+            día.</p>
+
+        <h3>Elementos del Dashboard:</h3>
+        <div class="dashboard-info">
+            <div class="dashboard-card">
+                <h4>📊 Resumen Rápido</h4>
+                <ul>
+                    <li>Número de citas del día</li>
+                    <li>Citas pendientes de confirmar</li>
+                    <li>Pacientes con alertas médicas</li>
+                    <li>Mensajes sin leer</li>
+                </ul>
+            </div>
+
+            <div class="dashboard-card">
+                <h4>⚡ Accesos Directos</h4>
+                <ul>
+                    <li><strong>"Ver Agenda":</strong> Consulte su calendario del día</li>
+                    <li><strong>"Nuevo Paciente":</strong> Registre un animal nuevo</li>
+                    <li><strong>"Buscar Paciente":</strong> Acceso rápido a expedientes</li>
+                    <li><strong>"Mensajes":</strong> Revise comunicaciones pendientes</li>
+                </ul>
+            </div>
+        </div>
+
+        <app-info-card type="tip" title="Actualización Automática">
+            <p>El dashboard se actualiza automáticamente cuando hay cambios (nuevas citas, mensajes). También puede
+                deslizar hacia abajo para refrescar manualmente.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Gestión de Pacientes -->
+    <section class="doc-section">
+        <h2>4️⃣ Gestión de Pacientes</h2>
+
+        <h3>4.1. Directorio de Pacientes</h3>
+        <p>El directorio es su base de datos clínica centralizada.</p>
+
+        <h4>Acceder al Directorio:</h4>
+        <ol>
+            <li>Desde el menú principal, seleccione <strong>"Mis Pacientes"</strong></li>
+            <li>Verá el listado completo de animales registrados en la clínica</li>
+            <li>Cada tarjeta muestra:
+                <ul>
+                    <li>Foto del paciente</li>
+                    <li>Nombre y edad</li>
+                    <li>Especie y raza</li>
+                    <li>Nombre del propietario</li>
+                    <li>Estado de salud (alertas si hay)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>Búsqueda y Filtros:</h4>
+        <ul>
+            <li><strong>Barra de búsqueda:</strong> Filtre por nombre del paciente o del propietario</li>
+            <li><strong>Filtro por especie:</strong> Muestre solo perros, gatos, etc.</li>
+            <li><strong>Ordenamiento:</strong> Por nombre, fecha de última visita, o próxima cita</li>
+        </ul>
+
+        <h3>4.2. Registrar un Nuevo Paciente</h3>
+        <p>Cuando llega un cliente nuevo a la clínica con su mascota:</p>
+
+        <ol>
+            <li>Presione el botón <strong>"+ Nuevo Paciente"</strong> (<code>NuevoPaciente</code>)</li>
+            <li>Complete la <strong>Ficha Técnica</strong> del animal:</li>
+        </ol>
+
+        <div class="form-sections">
+            <div class="form-section">
+                <h4>📋 Datos del Propietario</h4>
+                <ul>
+                    <li><strong>Cliente existente:</strong> Busque y vincule al dueño registrado</li>
+                    <li><strong>Cliente nuevo:</strong> Si el propietario no existe en el sistema:
+                        <ul>
+                            <li>Solicite al administrador crear la cuenta del cliente primero</li>
+                            <li>O use la opción "Crear Propietario Rápido" (si disponible)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form-section">
+                <h4>🐾 Datos de la Mascota</h4>
+                <ul>
+                    <li><strong>Nombre:</strong> Nombre del animal</li>
+                    <li><strong>Especie:</strong> Perro, Gato, Ave, Reptil, etc.</li>
+                    <li><strong>Raza:</strong> Seleccione de la lista o escriba si no está</li>
+                    <li><strong>Fecha de Nacimiento:</strong> Para calcular edad automáticamente</li>
+                    <li><strong>Peso:</strong> En kg o lb</li>
+                    <li><strong>Color:</strong> Color predominante del pelaje</li>
+                    <li><strong>Sexo:</strong> Macho / Hembra</li>
+                    <li><strong>Esterilizado:</strong> Sí / No</li>
+                    <li><strong>Foto:</strong> Tome una foto clara del animal (frontal)</li>
+                </ul>
+            </div>
+        </div>
+
+        <ol start="3">
+            <li>Presione <strong>"Guardar"</strong></li>
+            <li>El sistema generará automáticamente un <strong>expediente médico vacío</strong></li>
+            <li>Ya puede comenzar a documentar la primera consulta</li>
+        </ol>
+
+        <app-info-card type="success" title="Expediente Creado">
+            <p>Una vez guardado, el paciente aparecerá en su directorio y podrá empezar a registrar su historial médico
+                inmediatamente.</p>
+        </app-info-card>
+
+        <h3>4.3. Expediente Clínico (Detalle del Paciente)</h3>
+        <p>Al seleccionar un paciente del directorio, entrará a su <strong>Historia Clínica Digital</strong>
+            (<code>HistorialMedico</code>). Esta sección es el <strong>núcleo de su trabajo médico</strong>.</p>
+
+        <p>El expediente se divide en <strong>4 pestañas de gestión</strong> independientes:</p>
+
+        <!-- Pestaña A: Vacunas -->
+        <div class="clinical-tabs">
+            <div class="tab-card vet-tab">
+                <h4>💉 A. Vacunas (TabVacunas)</h4>
+
+                <h5>Ver:</h5>
+                <ul>
+                    <li>Lista cronológica de vacunas aplicadas</li>
+                    <li>Fechas de aplicación y vencimiento</li>
+                    <li>Próximos refuerzos programados</li>
+                    <li>Lote y marca del producto (si se registró)</li>
+                </ul>
+
+                <h5>Acción - Registrar Nueva Vacuna:</h5>
+                <ol>
+                    <li>Presione el botón <strong>"+"</strong> o <strong>"Nueva Vacuna"</strong></li>
+                    <li>Seleccione el <strong>tipo de vacuna</strong>:
+                        <ul>
+                            <li>Rabia</li>
+                            <li>Parvovirus</li>
+                            <li>Moquillo</li>
+                            <li>Polivalente (Triple, Quíntuple, etc.)</li>
+                            <li>Otros (especificar)</li>
+                        </ul>
+                    </li>
+                    <li>Ingrese:
+                        <ul>
+                            <li><strong>Producto:</strong> Nombre comercial</li>
+                            <li><strong>Lote:</strong> Número de lote (opcional pero recomendado)</li>
+                            <li><strong>Fecha de aplicación:</strong> Hoy por defecto</li>
+                            <li><strong>Próxima dosis:</strong> Fecha estimada del refuerzo</li>
+                            <li><strong>Notas:</strong> Observaciones (ej. "Reacción leve en zona de aplicación")</li>
+                        </ul>
+                    </li>
+                    <li>Guarde el registro</li>
+                </ol>
+
+                <app-info-card type="info" title="Alertas Automáticas">
+                    <p>El sistema enviará notificaciones automáticas al propietario cuando se aproxime la fecha del
+                        refuerzo de vacuna.</p>
+                </app-info-card>
+            </div>
+
+            <!-- Pestaña B: Medicamentos -->
+            <div class="tab-card vet-tab">
+                <h4>💊 B. Medicamentos (TabMedicamentos)</h4>
+
+                <h5>Ver:</h5>
+                <ul>
+                    <li>Historial completo de recetas médicas</li>
+                    <li>Tratamientos activos (en curso)</li>
+                    <li>Tratamientos históricos (finalizados)</li>
+                    <li>Dosis, frecuencia y duración</li>
+                </ul>
+
+                <h5>Acción - Recetar Nuevo Medicamento:</h5>
+                <ol>
+                    <li>Presione <strong>"+ Nuevo Medicamento"</strong></li>
+                    <li>Complete el formulario de prescripción:
+                        <ul>
+                            <li><strong>Nombre del fármaco:</strong> Principio activo o nombre comercial</li>
+                            <li><strong>Presentación:</strong> Tabletas, jarabe, inyectable, tópico</li>
+                            <li><strong>Dosis:</strong> Cantidad por toma (ej. "1 tableta", "5 ml")</li>
+                            <li><strong>Frecuencia:</strong> Cada cuántas horas (ej. "Cada 8 horas", "2 veces al día")
+                            </li>
+                            <li><strong>Duración:</strong> Días totales de tratamiento (ej. "7 días", "14 días")</li>
+                            <li><strong>Vía de administración:</strong> Oral, inyectable, tópica</li>
+                            <li><strong>Indicaciones especiales:</strong> "Administrar con alimento", "No combinar con
+                                lácteos"</li>
+                        </ul>
+                    </li>
+                    <li>Guarde la receta</li>
+                </ol>
+
+                <app-info-card type="tip" title="Receta Digital">
+                    <p>El propietario verá la receta completa en su app, con instrucciones claras de administración.
+                        Puede descargarla en PDF si necesita una copia física.</p>
+                </app-info-card>
+            </div>
+
+            <!-- Pestaña C: Visitas -->
+            <div class="tab-card vet-tab">
+                <h4>🏥 C. Visitas y Consultas (TabVisitas)</h4>
+
+                <h5>Ver:</h5>
+                <ul>
+                    <li>Bitácora cronológica de todas las consultas (Anamnesis)</li>
+                    <li>Cada entrada muestra: fecha, motivo, diagnóstico y tratamiento</li>
+                    <li>Evolución del paciente a lo largo del tiempo</li>
+                </ul>
+
+                <h5>Acción - Documentar Nueva Visita:</h5>
+                <ol>
+                    <li>Presione <strong>"+ Nueva Visita"</strong></li>
+                    <li>Registre la información clínica:
+                        <ul>
+                            <li><strong>Motivo de Consulta:</strong> ¿Por qué vino el propietario?
+                                <br><em>Ejemplo: "Vómitos y diarrea desde hace 2 días"</em>
+                            </li>
+                            <li><strong>Signos Vitales:</strong>
+                                <ul>
+                                    <li>Temperatura (°C)</li>
+                                    <li>Frecuencia cardíaca (lpm)</li>
+                                    <li>Frecuencia respiratoria (rpm)</li>
+                                    <li>Peso actual (kg)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Examen Físico:</strong> Hallazgos relevantes
+                                <br><em>Ejemplo: "Deshidratación leve, mucosas rosadas, ganglios normales"</em>
+                            </li>
+                            <li><strong>Diagnóstico:</strong> Conclusión médica
+                                <br><em>Ejemplo: "Gastroenteritis aguda probable de origen alimentario"</em>
+                            </li>
+                            <li><strong>Tratamiento Aplicado:</strong> Qué se hizo en consulta
+                                <br><em>Ejemplo: "Fluidoterapia SC, antieméticos"</em>
+                            </li>
+                            <li><strong>Notas Adicionales:</strong> Observaciones detalladas, recomendaciones
+                                <br><em>Ejemplo: "Dueño reporta que comió basura. Se recomienda dieta blanda por 3
+                                    días"</em>
+                            </li>
+                            <li><strong>Próxima Cita:</strong> Fecha de seguimiento (opcional)</li>
+                        </ul>
+                    </li>
+                    <li>Guarde la visita</li>
+                </ol>
+
+                <app-info-card type="success" title="Registro Completo">
+                    <p>Cada visita queda documentada permanentemente en el expediente. Esto permite tener un historial
+                        médico completo y facilita el seguimiento a largo plazo.</p>
+                </app-info-card>
+            </div>
+
+            <!-- Pestaña D: Archivos -->
+            <div class="tab-card vet-tab">
+                <h4>📁 D. Archivos Adjuntos (TabArchivos)</h4>
+
+                <h5>Ver:</h5>
+                <ul>
+                    <li>Galería de documentos médicos del paciente</li>
+                    <li>Archivos organizados por fecha</li>
+                    <li>Miniaturas de imágenes para vista rápida</li>
+                </ul>
+
+                <h5>Tipos de Archivos Soportados:</h5>
+                <ul>
+                    <li>📸 <strong>Imágenes:</strong> JPG, PNG (radiografías, fotos de lesiones, ultrasonidos)</li>
+                    <li>📄 <strong>Documentos:</strong> PDF (resultados de laboratorio, certificados)</li>
+                    <li>🎞️ <strong>Video:</strong> MP4 (opcional, para procedimientos)</li>
+                </ul>
+
+                <h5>Acción - Subir Nuevo Archivo:</h5>
+                <ol>
+                    <li>Presione el botón <strong>"+ Subir Archivo"</strong></li>
+                    <li>Seleccione la fuente:
+                        <ul>
+                            <li><strong>"Cámara":</strong> Tome una foto nueva (ideal para lesiones dermatológicas)</li>
+                            <li><strong>"Galería":</strong> Seleccione archivo existente (ideal para PDFs de
+                                laboratorio)</li>
+                        </ul>
+                    </li>
+                    <li>Agregue información del archivo:
+                        <ul>
+                            <li><strong>Tipo:</strong> Radiografía, Análisis de Sangre, Ultrasonido, Foto Clínica,
+                                Certificado</li>
+                            <li><strong>Descripción:</strong> Breve nota explicativa
+                                <br><em>Ejemplo: "Rx lateral de abdomen - sospecha cuerpo extraño"</em>
+                            </li>
+                            <li><strong>Fecha:</strong> Fecha del estudio (hoy por defecto)</li>
+                        </ul>
+                    </li>
+                    <li>Confirme la subida</li>
+                    <li>El archivo se almacenará en la nube de forma segura</li>
+                </ol>
+
+                <app-info-card type="info" title="Acceso del Propietario">
+                    <p>Los archivos subidos estarán <strong>automáticamente disponibles</strong> para el propietario en
+                        su app. Puede descargarlos y compartirlos con otros profesionales si es necesario.</p>
+                </app-info-card>
+
+                <h5>Usos Comunes:</h5>
+                <ul>
+                    <li>Subir radiografías digitales</li>
+                    <li>Adjuntar resultados de hemogramas en PDF</li>
+                    <li>Fotografiar lesiones dérmicas para seguimiento</li>
+                    <li>Guardar ecografías</li>
+                    <li>Archivar certificados de salud para viajes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gestión de Agenda -->
+    <section class="doc-section">
+        <h2>5️⃣ Gestión de Agenda</h2>
+
+        <h3>5.1. Agenda del Día</h3>
+        <p>Su calendario clínico digitalizado y siempre actualizado.</p>
+
+        <h4>Acceder a la Agenda:</h4>
+        <ol>
+            <li>Desde el menú principal, seleccione <strong>"Agenda"</strong> (<code>AgendaDelDia</code>)</li>
+            <li>Verá su <strong>hoja de ruta diaria</strong>:
+                <ul>
+                    <li>Citas ordenadas cronológicamente por hora</li>
+                    <li>Codificación por colores según estado</li>
+                    <li>Vista de calendario mensual para navegación</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>Información de Cada Cita:</h4>
+        <ul>
+            <li><strong>Hora programada</strong></li>
+            <li><strong>Nombre del paciente</strong> y propietario</li>
+            <li><strong>Tipo de servicio:</strong>
+                <ul>
+                    <li>🔍 Consulta General</li>
+                    <li>💉 Vacunación</li>
+                    <li>🔪 Cirugía</li>
+                    <li>🚨 Emergencia</li>
+                    <li>✂️ Grooming</li>
+                    <li>🔄 Control de Rutina</li>
+                </ul>
+            </li>
+            <li><strong>Estado:</strong> Pendiente, Confirmada, En Proceso, Completada, Cancelada</li>
+            <li><strong>Notas del propietario</strong> (si agregó alguna al solicitar)</li>
+        </ul>
+
+        <h3>5.2. Confirmar Citas</h3>
+        <p>Cuando un cliente solicita una cita, esta aparece como <strong>"Pendiente"</strong> hasta que usted la
+            confirme.</p>
+
+        <ol>
+            <li>Toque sobre la cita pendiente</li>
+            <li>Revise los detalles (paciente, motivo, hora)</li>
+            <li>Presione <strong>"Confirmar Cita"</strong> si puede atenderla</li>
+            <li>O presione <strong>"Rechazar"</strong> si no tiene disponibilidad (indique motivo)</li>
+            <li>El propietario recibirá notificación inmediata de su decisión</li>
+        </ol>
+
+        <h3>5.3. Crear Cita Manualmente</h3>
+        <p>Aunque los clientes pueden solicitar citas, usted también puede agendarlas directamente (útil para cirugías
+            programadas, revisiones o pacientes hospitalizados).</p>
+
+        <ol>
+            <li>En la vista de Agenda, presione <strong>"+ Nueva Cita"</strong></li>
+            <li>Seleccione al <strong>Paciente</strong> del directorio</li>
+            <li>Defina:
+                <ul>
+                    <li><strong>Fecha:</strong> Use el calendario</li>
+                    <li><strong>Hora:</strong> Seleccione horario disponible</li>
+                    <li><strong>Tipo de servicio:</strong> Consulta, Cirugía, etc.</li>
+                    <li><strong>Duración estimada:</strong> 30 min, 1 hora, 2 horas</li>
+                    <li><strong>Motivo:</strong> Descripción breve</li>
+                </ul>
+            </li>
+            <li>Presione <strong>"Guardar Cita"</strong></li>
+            <li>La cita quedará <strong>bloqueada en el calendario maestro</strong></li>
+            <li>El propietario verá la cita en su app automáticamente</li>
+        </ol>
+
+        <app-info-card type="warning" title="Calendario Sincronizado">
+            <p>El calendario se sincroniza en tiempo real con todos los dispositivos. Si crea o modifica una cita, el
+                cambio es instantáneo en toda la clínica.</p>
+        </app-info-card>
+
+        <h3>5.4. Reprogramar o Cancelar Citas</h3>
+        <ol>
+            <li>Seleccione la cita que desea modificar</li>
+            <li>Presione <strong>"Reprogramar"</strong> para cambiar fecha/hora</li>
+            <li>O presione <strong>"Cancelar"</strong> e indique el motivo</li>
+            <li>El propietario recibirá notificación del cambio</li>
+        </ol>
+    </section>
+
+    <!-- Comunicación -->
+    <section class="doc-section">
+        <h2>6️⃣ Comunicación y Perfil</h2>
+
+        <h3>6.1. Chat con Propietarios</h3>
+        <p>Sistema de mensajería integrado para comunicación profesional y trazable.</p>
+
+        <h4>Acceder al Chat:</h4>
+        <ol>
+            <li>Vaya a la sección <strong>"Mensajes"</strong> en el menú</li>
+            <li>Verá lista de conversaciones activas con propietarios</li>
+            <li>Seleccione una conversación para abrirla</li>
+        </ol>
+
+        <h4>Usos del Chat:</h4>
+        <ul>
+            <li><strong>Seguimiento post-consulta:</strong> "¿Cómo sigue Max después del tratamiento?"</li>
+            <li><strong>Recordatorios personalizados:</strong> "No olvide la cita de control el lunes"</li>
+            <li><strong>Responder dudas sobre medicamentos:</strong> "Sí, puede administrar con alimento"</li>
+            <li><strong>Solicitar fotos de evolución:</strong> "¿Puede enviarme foto de la herida?"</li>
+            <li><strong>Indicaciones pre-cirugía:</strong> "Ayuno de 12 horas antes de la cirugía"</li>
+        </ul>
+
+        <h4>Funciones Disponibles:</h4>
+        <ul>
+            <li>✍️ Mensajes de texto</li>
+            <li>📸 Enviar y recibir imágenes</li>
+            <li>📄 Compartir documentos (PDFs de resultados)</li>
+            <li>🔔 Notificaciones en tiempo real</li>
+        </ul>
+
+        <app-info-card type="tip" title="Comunicación Profesional">
+            <p><strong>Importante:</strong> Mantenga la comunicación profesional y dentro de la plataforma. Esto
+                garantiza <strong>respaldo legal</strong> y trazabilidad de todas las indicaciones médicas.</p>
+        </app-info-card>
+
+        <app-info-card type="warning" title="Emergencias">
+            <p>Para casos de emergencia real, <strong>siempre recomiende llamar por teléfono o acudir
+                    presencialmente</strong> a la clínica. El chat no sustituye la atención de urgencias.</p>
+        </app-info-card>
+
+        <h3>6.2. Mi Perfil Profesional</h3>
+        <p>Su perfil es visible para los propietarios al agendar citas. Manténgalo actualizado.</p>
+
+        <h4>Editar Perfil:</h4>
+        <ol>
+            <li>Vaya a <strong>"Perfil"</strong> en el menú</li>
+            <li>Presione <strong>"Editar"</strong></li>
+            <li>Actualice:
+                <ul>
+                    <li><strong>Foto Profesional:</strong> Use foto formal con bata o uniforme (genera confianza)</li>
+                    <li><strong>Nombre Completo:</strong> Incluya título (Dr./Dra.)</li>
+                    <li><strong>Especialidad:</strong> Cirugía, Dermatología, Medicina Interna, Anestesiología, etc.
+                    </li>
+                    <li><strong>Número de Licencia:</strong> Registro profesional (opcional)</li>
+                    <li><strong>Años de Experiencia:</strong> Para referencia de clientes</li>
+                    <li><strong>Biografía:</strong> Breve descripción profesional (2-3 líneas)</li>
+                </ul>
+            </li>
+            <li>Guarde los cambios</li>
+        </ol>
+
+        <app-info-card type="info" title="Visibilidad para Clientes">
+            <p>Los propietarios pueden ver su especialidad y foto al agendar citas. Una foto profesional y especialidad
+                clara ayudan a generar confianza.</p>
+        </app-info-card>
+
+        <h4>Horario de Atención:</h4>
+        <p>Su horario determina en qué franjas horarias los clientes pueden solicitarle citas.</p>
+        <ul>
+            <li>Verifique que sus turnos estén correctamente configurados</li>
+            <li>Si necesita cambios en su horario (vacaciones, guardias, etc.), <strong>solicítelos al
+                    Administrador</strong></li>
+            <li>El sistema bloqueará automáticamente citas fuera de su horario</li>
+        </ul>
+
+        <h3>6.3. Cambiar Contraseña</h3>
+        <ol>
+            <li>En su Perfil, vaya a <strong>"Configuración"</strong></li>
+            <li>Seleccione <strong>"Cambiar Contraseña"</strong></li>
+            <li>Ingrese contraseña actual</li>
+            <li>Ingrese nueva contraseña (mínimo 8 caracteres)</li>
+            <li>Confirme la nueva contraseña</li>
+            <li>Guarde los cambios</li>
+        </ol>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="doc-section">
+        <h2>7️⃣ Preguntas Frecuentes (Soporte Técnico)</h2>
+
+        <div class="faq-item">
+            <h3>¿Cómo edito una vacuna mal registrada?</h3>
+            <p><strong>Respuesta:</strong> Por seguridad médica y trazabilidad, ciertos registros no pueden editarse o
+                borrarse directamente. Si cometió un error:</p>
+            <ul>
+                <li><strong>Opción 1:</strong> Contacte al Administrador para que corrija el registro</li>
+                <li><strong>Opción 2:</strong> Agregue una <strong>"Nota de Corrección"</strong> en la sección de
+                    Visitas explicando el error</li>
+                <li><strong>Ejemplo:</strong> "Corrección: La vacuna Rabia del 15/03 fue aplicada el 14/03"</li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>El paciente no aparece en la búsqueda</h3>
+            <p><strong>Problema común:</strong> El propietario no está registrado en el sistema.</p>
+            <p><strong>Solución:</strong></p>
+            <ol>
+                <li>Verifique que el <strong>propietario</strong> tenga una cuenta de Cliente creada primero</li>
+                <li>Si el dueño es completamente nuevo:
+                    <ul>
+                        <li>Solicite al <strong>Administrador</strong> crear el usuario Cliente</li>
+                        <li>O use "Crear Propietario Rápido" (si tiene permisos)</li>
+                    </ul>
+                </li>
+                <li>Una vez creado el propietario, podrá vincular la mascota</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Puedo ver mi agenda desde casa?</h3>
+            <p><strong>Respuesta:</strong> ¡Sí! Al ser una <strong>aplicación en la nube</strong>, puede acceder a:</p>
+            <ul>
+                <li>Su agenda completa</li>
+                <li>Expedientes médicos de pacientes</li>
+                <li>Chat con propietarios</li>
+                <li>Notificaciones de nuevas citas</li>
+            </ul>
+            <p>Desde cualquier lugar con <strong>conexión a internet</strong>, en cualquier dispositivo móvil donde
+                tenga instalada la app y su sesión iniciada.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Puedo eliminar un paciente del sistema?</h3>
+            <p><strong>Respuesta:</strong> Por políticas de conservación de historiales médicos, los pacientes
+                <strong>no se pueden eliminar</strong> una vez creados. Sin embargo:</p>
+            <ul>
+                <li>Puede marcarlo como "Inactivo" si ya no asiste</li>
+                <li>El administrador puede archivar pacientes si es necesario</li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>No puedo subir archivos muy pesados</h3>
+            <p><strong>Límite de tamaño:</strong> Los archivos tienen un tamaño máximo de <strong>10 MB</strong> por
+                seguridad y velocidad.</p>
+            <p><strong>Solución para archivos grandes:</strong></p>
+            <ul>
+                <li>Comprima imágenes antes de subirlas</li>
+                <li>Para PDFs grandes, use herramientas online de compresión</li>
+                <li>Divida documentos muy extensos en varias partes</li>
+            </ul>
+        </div>
+
+        <div class="faq-item">
+            <h3>¿Los datos están seguros y respaldados?</h3>
+            <p><strong>Respuesta:</strong> Sí, absolutamente:</p>
+            <ul>
+                <li>Todos los datos se almacenan en <strong>servidores seguros en la nube</strong> (Supabase)</li>
+                <li>Conexiones encriptadas con SSL</li>
+                <li>Respaldos automáticos diarios</li>
+                <li>Cumplimiento de normas de privacidad médica</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Recursos Adicionales -->
+    <section class="doc-section">
+        <h2>📚 Recursos Adicionales</h2>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <span class="resource-icon">🎥</span>
+                <h4>Video Recomendado</h4>
+                <p><strong>Digitalización Veterinaria</strong></p>
+                <p>Descubra cómo la digitalización mejora la retención de clientes y la rentabilidad de clínicas
+                    veterinarias.</p>
+                <p><em>Este video explica el impacto positivo de usar herramientas digitales como CuidaColitasAPP en el
+                        orden y éxito de una clínica.</em></p>
+                <a href="https://youtube.com/watch?v=example" target="_blank" class="resource-link">Ver Video →</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">📖</span>
+                <h4>Documentación Técnica</h4>
+                <p>Para desarrolladores y administradores del sistema</p>
+                <a href="/developer/architecture" class="resource-link">Ver Arquitectura →</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon">💡</span>
+                <h4>Mejores Prácticas</h4>
+                <p>Tips para optimizar su flujo de trabajo clínico con la app</p>
+                <a href="#" class="resource-link">Próximamente →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soporte -->
+    <section class="doc-section">
+        <h2>📞 Soporte y Contacto</h2>
+        <p>Si tiene problemas técnicos o necesita asistencia:</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <span class="contact-icon">💬</span>
+                <h4>Chat en la App</h4>
+                <p>Soporte en tiempo real</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">👨‍💼</span>
+                <h4>Administrador</h4>
+                <p>Contacte al admin de su clínica</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">📧</span>
+                <h4>Email</h4>
+                <p>soporte@cuidacolitas.com</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">📱</span>
+                <h4>Teléfono</h4>
+                <p>+503 1234-5678</p>
+            </div>
+        </div>
+    </section>
+
+    <app-info-card type="success" title="¡Gracias por usar CuidaColitasAPP! 🩺">
+        <p>Su compromiso con la excelencia médica y la adopción de herramientas digitales contribuye a mejorar la
+            calidad de vida de los animales y la experiencia de sus propietarios.</p>
+    </app-info-card>
+</div>

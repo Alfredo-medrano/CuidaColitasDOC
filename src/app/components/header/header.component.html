@@ -20,16 +20,17 @@
             <button class="theme-toggle" (click)="toggleTheme()"
                 [attr.aria-label]="themeService.theme() === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'">
                 @if (themeService.theme() === 'light') {
-                <span class="icon">🌙</span>
+                <span class="icon" title="cambiar a oscuro" aria-label="dark">🌙</span>
                 } @else {
-                <span class="icon">☀️</span>
+                <span class="icon" title="cambiar a claro" aria-label="light">☀️</span>
                 }
             </button>
 
             <!-- GitHub Link -->
             <a href="https://github.com/Alfredo-medrano/CuidaColitasAPP-UGB.git" target="_blank"
                 rel="noopener noreferrer" class="github-link" aria-label="Ver en GitHub">
-                <span class="icon">💻</span>
+                <span class="icon" title="github" aria-label="github">💻</span>
+
             </a>
         </div>
     </div>

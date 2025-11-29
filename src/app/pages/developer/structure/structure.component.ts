@@ -52,7 +52,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);`;
 };`;
 
   protected colorsExample = `export const colors = {
-  primary: '#013847',
+    primary: '#013847',
     secondary: '#007bff',
     danger: '#dc3545',
     white: '#ffffff',

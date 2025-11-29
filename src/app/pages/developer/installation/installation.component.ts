@@ -4,10 +4,10 @@ import { InfoCardComponent } from '../../../components/info-card/info-card.compo
 import { CodeBlockComponent } from '../../../components/code-block/code-block.component';
 
 @Component({
-    selector: 'app-installation',
-    standalone: true,
-    imports: [CommonModule, InfoCardComponent, CodeBlockComponent],
-    template: `
+  selector: 'app-installation',
+  standalone: true,
+  imports: [CommonModule, InfoCardComponent, CodeBlockComponent],
+  template: `
     <div class="doc-page">
       <h1>Guía de Instalación</h1>
       <p class="lead">Configura tu entorno de desarrollo para CuidaColitas</p>
@@ -18,7 +18,7 @@ import { CodeBlockComponent } from '../../../components/code-block/code-block.co
           <li>Node.js (v18 o superior)</li>
           <li>npm o yarn</li>
           <li>Git</li>
-          <li>Android Studio (para desarrollo Android)</li>
+          <li>Android Studio (para desarrollo Android) o editor de texto de comodidad</li>
         </ul>
       </app-info-card>
 
@@ -35,16 +35,16 @@ import { CodeBlockComponent } from '../../../components/code-block/code-block.co
         <p>Crea un archivo <code>.env</code> con:</p>
         <app-code-block
           filename=".env"
-          [code]="'SUPABASE_URL=tu-url-de-supabase\\nSUPABASE_ANON_KEY=tu-anon-key\\nGEMINI_API_KEY=tu-gemini-api-key'"
+          [code]="'SUPABASE_URL=tu-url-de-supabase\\nSUPABASE_ANON_KEY=tu-anon-key'"
         ></app-code-block>
       </section>
 
       <app-info-card type="success" title="¡Listo!">
-        <p>Tu entorno de desarrollo está configurado. Ahora puedes ejecutar <code>npm start</code> y escanear el código QR con Expo Go.</p>
+        <p>Tu entorno de desarrollo está configurado. Ahora puedes ejecutar <code>npx expo start</code> y escanear el código QR con Expo Go.</p>
       </app-info-card>
     </div>
   `,
-    styles: [`
+  styles: [`
     .doc-page { animation: fadeIn 0.5s ease-out; }
     .lead { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 2rem; }
     .doc-section { margin-bottom: 3rem; }

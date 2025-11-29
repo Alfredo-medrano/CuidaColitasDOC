@@ -1,3 +1,5 @@
+/* Reuse styles from cliente.component.css and add veterinarian-specific styles */
+
 /* Features Grid */
 .features-grid {
     display: grid;
@@ -39,40 +41,112 @@
     font-size: 0.875rem;
 }
 
-/* Tabs Explanation */
-.tabs-explanation {
+/* Dashboard Info */
+.dashboard-info {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.dashboard-card {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--card-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.dashboard-card h4 {
+    margin: 0 0 1rem 0;
+    color: var(--card-color);
+    font-size: 1.25rem;
+}
+
+.dashboard-card ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.dashboard-card li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+/* Form Sections */
+.form-sections {
     display: grid;
     gap: 1.5rem;
     margin: 2rem 0;
 }
 
-.tab-card {
+.form-section {
     background: var(--bg-secondary);
-    border-left: 4px solid var(--accent-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
 }
 
-.tab-card h4 {
+.form-section h4 {
     margin: 0 0 1rem 0;
-    color: var(--accent-color);
-    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-size: 1.125rem;
 }
 
-.tab-card p {
-    margin: 0.5rem 0;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.tab-card ul {
+.form-section ul {
     margin: 0.5rem 0 0 1.5rem;
-    padding: 0;
 }
 
-.tab-card li {
+.form-section li {
     margin-bottom: 0.5rem;
-    color: var(--text-secondary);
+}
+
+/* Clinical Tabs - Veterinarian Specific */
+.clinical-tabs {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tab-card.vet-tab {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    border-left: 5px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.tab-card.vet-tab:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateX(4px);
+}
+
+.tab-card.vet-tab h4 {
+    margin: 0 0 1.5rem 0;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.tab-card.vet-tab h5 {
+    margin: 1.5rem 0 0.75rem 0;
+    color: var(--card-color);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.tab-card.vet-tab ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+
+.tab-card.vet-tab ol {
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+
+.tab-card.vet-tab li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 /* FAQ Items */
@@ -91,9 +165,77 @@
 }
 
 .faq-item p {
-    margin: 0;
+    margin: 0.5rem 0;
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+.faq-item ul,
+.faq-item ol {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.faq-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.resource-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.resource-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.resource-card h4 {
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+}
+
+.resource-card p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.resource-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
 }
 
 /* Contact Grid */
@@ -175,6 +317,13 @@
     color: var(--text-primary);
 }
 
+.doc-section h5 {
+    font-size: 1.125rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--card-color);
+}
+
 .doc-section ul,
 .doc-section ol {
     margin-left: 1.5rem;
@@ -209,7 +358,9 @@
 @media (max-width: 768px) {
 
     .features-grid,
-    .contact-grid {
+    .contact-grid,
+    .resources-grid,
+    .dashboard-info {
         grid-template-columns: 1fr;
     }
 
