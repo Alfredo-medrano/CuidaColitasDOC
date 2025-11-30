@@ -1,0 +1,458 @@
+<div class="doc-page">
+    <h1>👷 Guía de Contribución</h1>
+    <p class="lead">¡Gracias por tu interés en contribuir a CuidaColitasAPP! Esta guía te ayudará a configurar tu
+        entorno de desarrollo y seguir las mejores prácticas del proyecto.</p>
+
+    <app-info-card type="success" title="Bienvenido al Equipo 🎉">
+        <p>Tu contribución ayuda a mejorar la experiencia de clínicas veterinarias y propietarios de mascotas. Cada
+            línea de código cuenta!</p>
+    </app-info-card>
+
+    <!-- Prerrequisitos -->
+    <section class="doc-section">
+        <h2>📋 Prerrequisitos</h2>
+        <p>Antes de comenzar, asegúrate de tener instalado lo siguiente en tu entorno local:</p>
+
+        <div class="requirements-grid">
+            <div class="requirement-card">
+                <span class="req-icon">📦</span>
+                <h4>Node.js</h4>
+                <p>Versión LTS recomendada: <strong>v18+</strong></p>
+                <a href="https://nodejs.org/" target="_blank">Descargar Node.js</a>
+            </div>
+
+            <div class="requirement-card">
+                <span class="req-icon">🔧</span>
+                <h4>Git</h4>
+                <p>Sistema de control de versiones</p>
+                <a href="https://git-scm.com/" target="_blank">Descargar Git</a>
+            </div>
+
+            <div class="requirement-card">
+                <span class="req-icon">⚡</span>
+                <h4>Expo CLI</h4>
+                <p>Aunque usamos <code>npx</code>, es útil tenerlo global</p>
+                <code>npm install -g expo-cli</code>
+            </div>
+
+            <div class="requirement-card">
+                <span class="req-icon">📱</span>
+                <h4>Expo Go App</h4>
+                <p>Instala en tu dispositivo móvil</p>
+                <p>Disponible en Play Store / App Store</p>
+            </div>
+
+            <div class="requirement-card optional">
+                <span class="req-icon">💻</span>
+                <h4>Emulador (Opcional)</h4>
+                <p><strong>Android Studio</strong> (Android Emulator)</p>
+                <p><strong>Xcode</strong> (iOS Simulator - Solo macOS)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuración del Proyecto -->
+    <section class="doc-section">
+        <h2>🚀 Configuración del Proyecto (Setup)</h2>
+        <p>Sigue estos pasos para configurar el proyecto en tu máquina local:</p>
+
+        <h3>1. Clonar el Repositorio</h3>
+        <p>Obtén una copia local del código fuente:</p>
+        <app-code-block language="bash" [code]="cloneCommand"></app-code-block>
+
+        <h3>2. Instalar Dependencias</h3>
+        <p>Instala todos los paquetes de Node.js necesarios:</p>
+        <app-code-block language="bash" [code]="installCommand"></app-code-block>
+
+        <app-info-card type="tip" title="Tiempo de Instalación">
+            <p>La primera instalación puede tomar varios minutos dependiendo de tu conexión a internet. ¡Ten paciencia!
+            </p>
+        </app-info-card>
+
+        <h3>3. Configurar Variables de Entorno</h3>
+        <p>El proyecto utiliza <strong>Supabase</strong> como backend. Necesitas crear un archivo <code>.env</code>
+            en la raíz del proyecto para conectar la aplicación.</p>
+
+        <h4>Pasos:</h4>
+        <ol>
+            <li>Crea un archivo llamado <code>.env</code> en la raíz del proyecto</li>
+            <li>Agrega las siguientes claves (solicítalas al administrador del proyecto si no las tienes):</li>
+        </ol>
+
+        <app-code-block language="bash" [code]="envTemplate"></app-code-block>
+
+        <app-info-card type="warning" title="Seguridad Crítica ⚠️">
+            <p><strong>NUNCA</strong> subas el archivo <code>.env</code> al repositorio. Este archivo ya está incluido
+                en <code>.gitignore</code> por seguridad.</p>
+            <p>Las credenciales de producción solo debe conocerlas el equipo de administración.</p>
+        </app-info-card>
+
+        <h3>4. Ejecutar la Aplicación</h3>
+        <p>Para iniciar el servidor de desarrollo de Metro Bundler:</p>
+        <app-code-block language="bash" [code]="startCommand"></app-code-block>
+
+        <h4>Opciones de Visualización:</h4>
+        <ul>
+            <li>📱 <strong>Dispositivo Real:</strong> Escanea el código QR con la app Expo Go</li>
+            <li>🤖 <strong>Android Emulator:</strong> Presiona <code>a</code> en la terminal</li>
+            <li>🍎 <strong>iOS Simulator:</strong> Presiona <code>i</code> en la terminal (Solo macOS)</li>
+            <li>🌐 <strong>Web Browser:</strong> Presiona <code>w</code> en la terminal</li>
+        </ul>
+    </section>
+
+    <!-- Estructura del Código -->
+    <section class="doc-section">
+        <h2>📂 Estructura del Código</h2>
+        <p>Es fundamental mantener el orden establecido en el proyecto para facilitar el mantenimiento y la
+            colaboración:</p>
+
+        <div class="structure-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Directorio</th>
+                        <th>Propósito</th>
+                        <th>Reglas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>src/api/</code></td>
+                        <td>Conexiones externas</td>
+                        <td>Solo archivos de integración (Supabase Client, APIs externas)</td>
+                    </tr>
+                    <tr>
+                        <td><code>src/components/</code></td>
+                        <td>Componentes reutilizables</td>
+                        <td>
+                            <ul>
+                                <li><code>shared/</code> - Componentes genéricos</li>
+                                <li><code>client/</code> - Específicos del rol Cliente</li>
+                                <li><code>vet/</code> - Específicos del rol Veterinario</li>
+                                <li><code>admin/</code> - Específicos del rol Admin</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>src/hooks/</code></td>
+                        <td>Lógica de negocio</td>
+                        <td><strong>TODA</strong> la lógica de peticiones a BD va aquí. No hagas fetches directos en
+                            componentes visuales</td>
+                    </tr>
+                    <tr>
+                        <td><code>src/screens/</code></td>
+                        <td>Pantallas de navegación</td>
+                        <td>Vistas completas que aparecen en la navegación principal</td>
+                    </tr>
+                    <tr>
+                        <td><code>src/theme/</code></td>
+                        <td>Estilos globales</td>
+                        <td>Colores, fuentes, y constantes de diseño</td>
+                    </tr>
+                    <tr>
+                        <td><code>src/context/</code></td>
+                        <td>Estado global</td>
+                        <td>React Context para autenticación, configuración, etc.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <app-info-card type="info" title="Principio de Separación de Responsabilidades">
+            <p>Cada archivo debe tener <strong>una única responsabilidad</strong>. Los componentes solo renderizan UI,
+                los hooks manejan datos, y el contexto gestiona estado global.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Estándares de Código -->
+    <section class="doc-section">
+        <h2>🎨 Estándares de Código</h2>
+        <p>Seguir estos estándares asegura que el código sea <strong>legible</strong>, <strong>mantenible</strong> y
+            <strong>consistente</strong> en todo el proyecto.
+        </p>
+
+        <h3>React Native & Hooks</h3>
+        <div class="standards-list">
+            <div class="standard-item">
+                <h4>✅ Usa Componentes Funcionales</h4>
+                <p>Siempre utiliza componentes funcionales con Hooks (<code>useState</code>, <code>useEffect</code>).
+                    No uses componentes de clase.</p>
+                <app-code-block language="javascript" [code]="functionalComponentExample"></app-code-block>
+            </div>
+
+            <div class="standard-item">
+                <h4>✅ Separa la Lógica del UI</h4>
+                <p>No escribas lógica compleja dentro del JSX. Extráela a un Custom Hook en
+                    <code>src/hooks/</code>.
+                </p>
+                <app-code-block language="javascript" [code]="customHookExample"></app-code-block>
+            </div>
+
+            <div class="standard-item">
+                <h4>✅ Async/Await Siempre</h4>
+                <p>Usa <code>async/await</code> para todas las promesas y peticiones a Supabase.</p>
+                <app-code-block language="javascript" [code]="asyncAwaitExample"></app-code-block>
+            </div>
+        </div>
+
+        <h3>Estilos (Styling)</h3>
+        <ul>
+            <li>✅ Usa <code>StyleSheet.create()</code> al final del archivo</li>
+            <li>✅ Importa estilos globales de <code>src/theme/theme.js</code> cuando aplique</li>
+            <li>❌ Evita estilos en línea (<code>style={{ "{{ width: 100 }}" }}</code>) salvo casos excepcionales de
+                dinamismo</li>
+        </ul>
+
+        <app-code-block language="javascript" [code]="styleSheetExample"></app-code-block>
+
+        <h3>Convenciones de Nombres (Naming Conventions)</h3>
+        <div class="naming-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Convención</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Componentes</td>
+                        <td><strong>PascalCase</strong></td>
+                        <td><code>BotonGuardar.js</code>, <code>PetCard.js</code></td>
+                    </tr>
+                    <tr>
+                        <td>Funciones/Hooks</td>
+                        <td><strong>camelCase</strong></td>
+                        <td><code>useAuth.js</code>, <code>calcularEdad.js</code></td>
+                    </tr>
+                    <tr>
+                        <td>Variables</td>
+                        <td><strong>camelCase</strong></td>
+                        <td><code>userProfile</code>, <code>petList</code></td>
+                    </tr>
+                    <tr>
+                        <td>Constantes</td>
+                        <td><strong>UPPER_SNAKE_CASE</strong></td>
+                        <td><code>MAX_RETRY_COUNT</code>, <code>API_TIMEOUT</code></td>
+                    </tr>
+                    <tr>
+                        <td>Archivos CSS/Estilos</td>
+                        <td><strong>camelCase</strong></td>
+                        <td><code>homeScreen.css</code>, <code>theme.js</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Flujo de Trabajo Git -->
+    <section class="doc-section">
+        <h2>🔄 Flujo de Trabajo (Git Flow)</h2>
+        <p>Trabajamos con un flujo de ramas (<strong>branching strategy</strong>) para mantener la rama
+            <code>main</code> siempre estable y lista para producción.
+        </p>
+
+        <app-info-card type="warning" title="Regla de Oro">
+            <p><strong>NUNCA trabajes directamente en la rama <code>main</code></strong>. Siempre crea una rama nueva
+                para tu tarea.</p>
+        </app-info-card>
+
+        <h3>1. Crear una Rama (Branch)</h3>
+        <p>Usa nombres descriptivos siguiendo estos prefijos:</p>
+
+        <div class="branch-types">
+            <div class="branch-type">
+                <code>feature/nombre-funcionalidad</code>
+                <p>Para nuevas funcionalidades o características</p>
+            </div>
+            <div class="branch-type">
+                <code>fix/descripcion-error</code>
+                <p>Para corrección de errores (bugs)</p>
+            </div>
+            <div class="branch-type">
+                <code>docs/nombre-doc</code>
+                <p>Para cambios en documentación</p>
+            </div>
+            <div class="branch-type">
+                <code>refactor/nombre-mejora</code>
+                <p>Para mejoras de código sin cambiar funcionalidad</p>
+            </div>
+        </div>
+
+        <h4>Ejemplo:</h4>
+        <app-code-block language="bash" [code]="branchExample"></app-code-block>
+
+        <h3>2. Commits</h3>
+        <p>Escribe mensajes de commit <strong>claros y descriptivos</strong>. Usa el formato de Conventional Commits:
+        </p>
+
+        <div class="commit-examples">
+            <div class="commit-good">
+                <h4>✅ Buenos Commits</h4>
+                <ul>
+                    <li><code>feat: agrega pantalla de historial médico</code></li>
+                    <li><code>fix: corrige error de login en Android</code></li>
+                    <li><code>docs: actualiza guía de contribución</code></li>
+                    <li><code>refactor: optimiza hook usePets</code></li>
+                    <li><code>style: ajusta espaciado en header</code></li>
+                </ul>
+            </div>
+            <div class="commit-bad">
+                <h4>❌ Malos Commits</h4>
+                <ul>
+                    <li><code>arreglando cosas</code></li>
+                    <li><code>cambios</code></li>
+                    <li><code>update</code></li>
+                    <li><code>fix bug</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Prefijos de Commit:</h4>
+        <ul>
+            <li><code>feat:</code> Nueva funcionalidad</li>
+            <li><code>fix:</code> Corrección de error</li>
+            <li><code>docs:</code> Cambios en documentación</li>
+            <li><code>style:</code> Cambios de formato (espacios, indentación)</li>
+            <li><code>refactor:</code> Refactorización de código</li>
+            <li><code>test:</code> Agregar o modificar tests</li>
+            <li><code>chore:</code> Tareas de mantenimiento</li>
+        </ul>
+
+        <h3>3. Pull Request (PR)</h3>
+        <p>Cuando termines tu tarea, es momento de integrar tus cambios al proyecto principal:</p>
+
+        <ol>
+            <li><strong>Verifica que la app funciona:</strong> Ejecuta <code>npx expo start</code> y prueba tu
+                funcionalidad</li>
+            <li><strong>Sube tus cambios:</strong>
+                <app-code-block language="bash" [code]="pushBranchCommand"></app-code-block>
+            </li>
+            <li><strong>Abre un Pull Request en GitHub</strong> hacia la rama <code>main</code></li>
+            <li><strong>Completa la descripción del PR:</strong>
+                <ul>
+                    <li>Qué hace tu cambio</li>
+                    <li>Por qué es necesario</li>
+                    <li>Adjunta capturas de pantalla si hay cambios visuales</li>
+                    <li>Lista los issues que resuelve (ej. "Closes #42")</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>Template de PR:</h4>
+        <app-code-block language="markdown" [code]="prTemplate"></app-code-block>
+
+        <app-info-card type="tip" title="Revisión de Código">
+            <p>Tu PR será revisado por otros miembros del equipo. Está abierto a recibir comentarios y sugerencias.
+                ¡Es parte del proceso de mejora continua!</p>
+        </app-info-card>
+    </section>
+
+    <!-- Base de Datos -->
+    <section class="doc-section">
+        <h2>🛠 Base de Datos (Supabase)</h2>
+        <p>Si necesitas modificar la estructura de la base de datos (crear tablas, cambiar columnas, agregar índices),
+            sigue estos pasos:</p>
+
+        <app-info-card type="warning" title="Precaución con Producción ⚠️">
+            <p><strong>NO hagas cambios manuales directamente en la base de datos de producción.</strong> Siempre usa
+                migraciones.</p>
+        </app-info-card>
+
+        <h3>Proceso de Migraciones:</h3>
+        <ol>
+            <li>Crea un archivo de migración SQL en <code>supabase/migrations/</code> con el formato:
+                <br><code>YYYYMMDD_descripcion_cambio.sql</code>
+                <br>Ejemplo: <code>20240315_add_specialty_to_vets.sql</code>
+            </li>
+            <li>Escribe el SQL necesario para el cambio</li>
+            <li>Documenta el cambio en el Pull Request</li>
+            <li>Los administradores aplicarán la migración en entornos de prueba y producción</li>
+        </ol>
+
+        <h4>Ejemplo de Migración:</h4>
+        <app-code-block language="sql" [code]="migrationExample"></app-code-block>
+    </section>
+
+    <!-- Reporte de Bugs -->
+    <section class="doc-section">
+        <h2>🐞 Reporte de Bugs</h2>
+        <p>Si encuentras un error en la aplicación, ayúdanos a solucionarlo reportándolo correctamente:</p>
+
+        <h3>Pasos para Reportar:</h3>
+        <ol>
+            <li>Ve a la pestaña <strong>"Issues"</strong> en el repositorio de GitHub</li>
+            <li>Crea un nuevo Issue con el template de "Bug Report"</li>
+            <li>Incluye la siguiente información:</li>
+        </ol>
+
+        <h4>Información Necesaria:</h4>
+        <div class="bug-report-template">
+            <h5>📝 Descripción del Error</h5>
+            <p>Descripción clara y concisa de qué salió mal.</p>
+
+            <h5>🔄 Pasos para Reproducir</h5>
+            <ol>
+                <li>Ve a '...'</li>
+                <li>Haz clic en '...'</li>
+                <li>Desplázate hacia '...'</li>
+                <li>Observa el error</li>
+            </ol>
+
+            <h5>✅ Comportamiento Esperado</h5>
+            <p>Describe qué debería haber pasado.</p>
+
+            <h5>📱 Entorno</h5>
+            <ul>
+                <li><strong>Dispositivo:</strong> Samsung Galaxy S21 / iPhone 13 / Emulador</li>
+                <li><strong>OS Version:</strong> Android 12 / iOS 16</li>
+                <li><strong>App Version:</strong> 1.2.0</li>
+            </ul>
+
+            <h5>📸 Capturas de Pantalla</h5>
+            <p>Adjunta capturas del error si es posible.</p>
+        </div>
+    </section>
+
+    <!-- Recursos Adicionales -->
+    <section class="doc-section">
+        <h2>📚 Recursos Adicionales</h2>
+
+        <div class="resources-grid">
+            <div class="resource-item">
+                <h4>📖 Documentación Oficial</h4>
+                <ul>
+                    <li><a href="https://reactnative.dev/docs/getting-started" target="_blank">React Native Docs</a>
+                    </li>
+                    <li><a href="https://docs.expo.dev/" target="_blank">Expo Documentation</a></li>
+                    <li><a href="https://supabase.com/docs" target="_blank">Supabase Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-item">
+                <h4>💬 Comunicación del Equipo</h4>
+                <p>Únete a nuestros canales de comunicación:</p>
+                <ul>
+                    <li>Discord / Slack del proyecto</li>
+                    <li>GitHub Discussions</li>
+                </ul>
+            </div>
+
+            <div class="resource-item">
+                <h4>🎓 Aprende Más</h4>
+                <ul>
+                    <li><a href="/developer/architecture">Arquitectura del Sistema</a></li>
+                    <li><a href="/developer/api">API Reference</a></li>
+                    <li><a href="/technical/database">Estructura de Base de Datos</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <app-info-card type="success" title="¡Tu Ayuda Hace la Diferencia! 🐶🐱">
+        <p>Cada contribución, grande o pequeña, hace que <strong>CuidaColitasAPP</strong> sea mejor cada día. Gracias
+            por formar parte de este proyecto que ayuda a mejorar el cuidado de las mascotas.</p>
+        <p><em>¡Feliz coding! 🚀</em></p>
+    </app-info-card>
+</div>

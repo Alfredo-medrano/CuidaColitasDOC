@@ -1,0 +1,419 @@
+/* Contributing Page Styles */
+
+/* Requirements Grid */
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.requirement-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.requirement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.requirement-card.optional {
+    border-style: dashed;
+    opacity: 0.85;
+}
+
+.req-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.requirement-card h4 {
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+}
+
+.requirement-card p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.requirement-card code {
+    background: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.requirement-card a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.requirement-card a:hover {
+    text-decoration: underline;
+}
+
+/* Structure Table */
+.structure-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.structure-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.structure-table thead {
+    background: var(--card-color);
+    color: white;
+}
+
+.structure-table th,
+.structure-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.structure-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.structure-table tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+.structure-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.structure-table code {
+    background: var(--bg-code);
+    color: var(--accent-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.structure-table ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+}
+
+.structure-table li {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Standards List */
+.standards-list {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.standard-item {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.standard-item h4 {
+    margin: 0 0 0.75rem 0;
+    color: var(--card-color);
+    font-size: 1.125rem;
+}
+
+.standard-item p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+/* Naming Table */
+.naming-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.naming-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.naming-table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.naming-table th,
+.naming-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.naming-table tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+.naming-table code {
+    background: var(--bg-tertiary);
+    color: var(--accent-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Branch Types */
+.branch-types {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.branch-type {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+}
+
+.branch-type code {
+    display: block;
+    background: var(--bg-code);
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.branch-type p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Commit Examples */
+.commit-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.commit-good,
+.commit-bad {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.commit-good {
+    border: 2px solid var(--accent-color);
+}
+
+.commit-bad {
+    border: 2px solid var(--alert-color);
+}
+
+.commit-good h4 {
+    margin: 0 0 1rem 0;
+    color: var(--accent-color);
+}
+
+.commit-bad h4 {
+    margin: 0 0 1rem 0;
+    color: var(--alert-color);
+}
+
+.commit-examples ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.commit-examples li {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+}
+
+/* Bug Report Template */
+.bug-report-template {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.bug-report-template h5 {
+    margin: 1.5rem 0 0.75rem 0;
+    color: var(--card-color);
+    font-size: 1.125rem;
+}
+
+.bug-report-template h5:first-child {
+    margin-top: 0;
+}
+
+.bug-report-template p {
+    margin: 0.5rem 0;
+}
+
+.bug-report-template ul,
+.bug-report-template ol {
+    margin: 0.5rem 0 0 1.5rem;
+}
+
+.bug-report-template li {
+    margin-bottom: 0.5rem;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.resource-item {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.resource-item h4 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.resource-item ul {
+    margin: 0.5rem 0 0 1.5rem;
+}
+
+.resource-item li {
+    margin-bottom: 0.5rem;
+}
+
+.resource-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.resource-item a:hover {
+    text-decoration: underline;
+}
+
+/* General Doc Styles */
+.doc-page {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.doc-section {
+    margin-bottom: 3rem;
+}
+
+.doc-section h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.doc-section h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--card-color);
+}
+
+.doc-section h4 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.doc-section ul,
+.doc-section ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.doc-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.doc-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.doc-section code {
+    background: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .requirements-grid,
+    .commit-examples,
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .structure-table,
+    .naming-table {
+        font-size: 0.875rem;
+    }
+
+    .doc-section h2 {
+        font-size: 1.75rem;
+    }
+}

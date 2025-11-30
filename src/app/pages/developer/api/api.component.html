@@ -1,0 +1,613 @@
+<div class="doc-page">
+    <div class="api-header">
+        <h1>📚 API Reference & Data Architecture</h1>
+        <div class="version-info">
+            <span class="version-badge">Versión: 1.0.0</span>
+            <span class="tech-badge">Backend: Supabase (PostgreSQL)</span>
+            <span class="tech-badge">Cliente: React Native</span>
+        </div>
+    </div>
+    <p class="lead">Documentación completa de la capa de datos, hooks personalizados para interactuar con el backend e
+        integraciones externas del sistema CuidaColitasAPP.</p>
+
+    <app-info-card type="info" title="Para Desarrolladores 👨‍💻">
+        <p>Esta sección documenta todos los métodos, hooks y estructuras de datos que utiliza la aplicación. Use esta
+            referencia para mantener consistencia en el desarrollo y entender la arquitectura de datos.</p>
+    </app-info-card>
+
+    <!-- Cliente Supabase Core -->
+    <section class="doc-section">
+        <h2>1️⃣ Cliente Supabase (Core)</h2>
+        <p>El cliente se inicializa como un <strong>Singleton</strong> para gestionar la conexión persistente con el
+            backend.</p>
+
+        <div class="file-reference">
+            <span class="file-icon">📄</span>
+            <strong>Archivo:</strong> <code>src/api/Supabase.js</code>
+        </div>
+
+        <app-info-card type="tip" title="Configuración">
+            <p>Utiliza <code>AsyncStorage</code> para la persistencia de sesión en dispositivos móviles, asegurando que
+                el usuario permanezca autenticado entre reinicios de la app.</p>
+        </app-info-card>
+
+        <app-code-block filename="src/api/Supabase.js" language="javascript"
+            [code]="supabaseClientCode"></app-code-block>
+
+        <h3>Características Clave:</h3>
+        <ul>
+            <li>✅ <strong>Patrón Singleton:</strong> Una única instancia compartida en toda la app</li>
+            <li>✅ <strong>Auto-refresh de tokens:</strong> Renueva automáticamente tokens JWT expirados</li>
+            <li>✅ <strong>Persistencia de sesión:</strong> El usuario se mantiene logueado</li>
+            <li>✅ <strong>Storage local:</strong> Usa AsyncStorage para React Native</li>
+        </ul>
+    </section>
+
+    <!-- Autenticación -->
+    <section class="doc-section">
+        <h2>2️⃣ Autenticación (Auth API)</h2>
+        <p>Gestionada globalmente a través de <code>AuthContext.js</code>. Todos los métodos de autenticación están
+            centralizados.</p>
+
+        <div class="file-reference">
+            <span class="file-icon">📄</span>
+            <strong>Context:</strong> <code>src/context/AuthContext.js</code>
+        </div>
+
+        <h3>Métodos Disponibles:</h3>
+
+        <div class="api-methods">
+            <div class="method-card">
+                <div class="method-header">
+                    <h4>🔐 signIn</h4>
+                    <span class="method-badge">auth.signInWithPassword()</span>
+                </div>
+                <p><strong>Descripción:</strong> Inicia sesión con credenciales de correo y contraseña.</p>
+
+                <div class="method-header">
+                    <h4>📝 signUp</h4>
+                    <span class="method-badge">auth.signUp()</span>
+                </div>
+                <p><strong>Descripción:</strong> Registra un nuevo usuario en <code>auth.users</code> con metadata
+                    adicional.</p>
+
+                <h5>Parámetros:</h5>
+                <ul>
+                    <li><code>email</code> (string): Correo electrónico</li>
+                    <li><code>password</code> (string): Contraseña segura</li>
+                    <li><code>options.data</code> (object): Metadata con <code>role</code> ('client', 'vet', 'admin')
+                    </li>
+                </ul>
+
+                <app-code-block language="javascript" [code]="signUpExample"></app-code-block>
+            </div>
+
+            <div class="method-card">
+                <div class="method-header">
+                    <h4>🚪 signOut</h4>
+                    <span class="method-badge">auth.signOut()</span>
+                </div>
+                <p><strong>Descripción:</strong> Cierra la sesión del usuario y limpia el almacenamiento local.</p>
+
+                <h5>Parámetros:</h5>
+                <p>N/A</p>
+
+                <app-code-block language="javascript" [code]="signOutExample"></app-code-block>
+            </div>
+
+            <div class="method-card">
+                <div class="method-header">
+                    <h4>🔑 resetPassword</h4>
+                    <span class="method-badge">auth.resetPasswordForEmail()</span>
+                </div>
+                <p><strong>Descripción:</strong> Envía un correo electrónico con enlace de recuperación de contraseña.
+                </p>
+
+                <h5>Parámetros:</h5>
+                <ul>
+                    <li><code>email</code> (string): Correo registrado en el sistema</li>
+                </ul>
+
+                <app-code-block language="javascript" [code]="resetPasswordExample"></app-code-block>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estructura de Datos -->
+    <section class="doc-section">
+        <h2>3️⃣ Estructura de Datos (Database Schema)</h2>
+        <p>Esquema relacional inferido del uso en <code>src/hooks/</code> y <code>src/screens/</code>. La base de datos
+            PostgreSQL está alojada en Supabase.</p>
+
+        <app-info-card type="warning" title="Integridad Referencial">
+            <p>Todas las tablas utilizan <strong>Foreign Keys</strong> con políticas de <code>ON DELETE CASCADE</code> o
+                <code>SET NULL</code> según corresponda. Las eliminaciones se propagan automáticamente.
+            </p>
+        </app-info-card>
+
+        <!-- Tabla Perfiles -->
+        <div class="table-schema">
+            <div class="table-header">
+                <h3>👤 Tabla: <code>perfiles</code> (Usuarios)</h3>
+                <span class="table-source">Fuente: <code>src/context/AuthContext.js</code>,
+                    <code>src/screens/Client/ProfileCliente.js</code></span>
+            </div>
+
+            <p><strong>Descripción:</strong> Almacena la información extendida de los usuarios (Clientes y
+                Veterinarios). Vinculada a <code>auth.users</code> mediante el campo <code>id</code>.</p>
+
+            <div class="schema-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>id</code></td>
+                            <td><span class="type-badge">UUID</span></td>
+                            <td>Primary Key (Vinculado a <code>auth.uid</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>nombre</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Nombre completo del usuario</td>
+                        </tr>
+                        <tr>
+                            <td><code>rol</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>'client', 'vet', 'admin'</td>
+                        </tr>
+                        <tr>
+                            <td><code>telefono</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Número de contacto</td>
+                        </tr>
+                        <tr>
+                            <td><code>direccion</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Dirección física (para Clientes)</td>
+                        </tr>
+                        <tr>
+                            <td><code>especialidad</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Especialidad médica (Solo Veterinarios)</td>
+                        </tr>
+                        <tr>
+                            <td><code>avatar_url</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>URL de la imagen en Supabase Storage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabla Mascotas -->
+        <div class="table-schema">
+            <div class="table-header">
+                <h3>🐾 Tabla: <code>mascotas</code></h3>
+                <span class="table-source">Fuente: <code>src/hooks/usePets.js</code></span>
+            </div>
+
+            <p><strong>Descripción:</strong> Catálogo de todas las mascotas registradas en el sistema, vinculadas a sus
+                propietarios.</p>
+
+            <div class="schema-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>id</code></td>
+                            <td><span class="type-badge">UUID</span></td>
+                            <td>Primary Key</td>
+                        </tr>
+                        <tr>
+                            <td><code>propietario_id</code></td>
+                            <td><span class="type-badge">UUID</span></td>
+                            <td>Foreign Key → <code>perfiles.id</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>nombre</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Nombre de la mascota</td>
+                        </tr>
+                        <tr>
+                            <td><code>especie</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>'Perro', 'Gato', etc.</td>
+                        </tr>
+                        <tr>
+                            <td><code>raza</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Raza de la mascota</td>
+                        </tr>
+                        <tr>
+                            <td><code>fecha_nac</code></td>
+                            <td><span class="type-badge">DATE</span></td>
+                            <td>Fecha de nacimiento</td>
+                        </tr>
+                        <tr>
+                            <td><code>peso</code></td>
+                            <td><span class="type-badge">FLOAT</span></td>
+                            <td>Peso actual en kg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabla Citas -->
+        <div class="table-schema">
+            <div class="table-header">
+                <h3>📅 Tabla: <code>citas</code></h3>
+                <span class="table-source">Fuente: <code>src/hooks/useAppointments.js</code></span>
+            </div>
+
+            <p><strong>Descripción:</strong> Registro de todas las citas médicas agendadas o completadas.</p>
+
+            <div class="schema-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>id</code></td>
+                            <td><span class="type-badge">UUID</span></td>
+                            <td>Primary Key</td>
+                        </tr>
+                        <tr>
+                            <td><code>id_mascota</code></td>
+                            <td><span class="type-badge">UUID</span></td>
+                            <td>Foreign Key → <code>mascotas.id</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>id_veterinario</code></td>
+                            <td><span class="type-badge">UUID</span></td>
+                            <td>Foreign Key → <code>perfiles.id</code> (Nullable)</td>
+                        </tr>
+                        <tr>
+                            <td><code>fecha</code></td>
+                            <td><span class="type-badge">DATE</span></td>
+                            <td>Fecha de la cita</td>
+                        </tr>
+                        <tr>
+                            <td><code>hora</code></td>
+                            <td><span class="type-badge">TIME</span></td>
+                            <td>Hora de la cita</td>
+                        </tr>
+                        <tr>
+                            <td><code>estado</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>'pendiente', 'confirmada', 'completada', 'cancelada'</td>
+                        </tr>
+                        <tr>
+                            <td><code>motivo</code></td>
+                            <td><span class="type-badge">TEXT</span></td>
+                            <td>Descripción del servicio solicitado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Historial Médico -->
+        <div class="table-schema">
+            <div class="table-header">
+                <h3>🩺 Historial Médico</h3>
+                <span class="table-source">Fuente: <code>src/screens/Vet/HistorialMedico.js</code></span>
+            </div>
+
+            <p><strong>Descripción:</strong> Tablas satélite para el expediente clínico completo de cada mascota.</p>
+
+            <h4>Tablas Relacionadas:</h4>
+            <ul>
+                <li><code>vacunas</code> - Registro de vacunas aplicadas</li>
+                <li><code>medicamentos</code> - Recetas y tratamientos</li>
+                <li><code>visitas_medicas</code> - Consultas y diagnósticos</li>
+                <li><code>archivos_adjuntos</code> - Radiografías, análisis, documentos</li>
+            </ul>
+
+            <app-info-card type="info" title="Esquema Modular">
+                <p>Cada tabla tiene su propio <code>id_mascota</code> como Foreign Key, permitiendo consultas
+                    independientes por pestaña en la interfaz del veterinario.</p>
+            </app-info-card>
+        </div>
+    </section>
+
+    <!-- Hooks Personalizados -->
+    <section class="doc-section">
+        <h2>4️⃣ Hooks Personalizados (Frontend API)</h2>
+        <p>Estos hooks encapsulan la lógica de negocio y las llamadas a Supabase. <strong>Los desarrolladores deben usar
+                estos hooks</strong> en lugar de llamar a <code>supabase</code> directamente en los componentes.</p>
+
+        <app-info-card type="warning" title="Patrón de Diseño">
+            <p>Todos los hooks siguen el patrón de <strong>separación de responsabilidades</strong>: el componente solo
+                renderiza UI, el hook maneja la lógica de datos.</p>
+        </app-info-card>
+
+        <!-- useAuth -->
+        <div class="hook-card">
+            <div class="hook-header">
+                <h3>🔐 useAuth()</h3>
+                <div class="hook-meta">
+                    <span class="hook-file">📄 <code>src/context/AuthContext.js</code></span>
+                </div>
+            </div>
+
+            <h4>Exporta:</h4>
+            <app-code-block language="javascript" [code]="useAuthExports"></app-code-block>
+
+            <h4>Uso:</h4>
+            <p>Control de sesión y protección de rutas. Proporciona el estado global de autenticación.</p>
+
+            <h4>Ejemplo:</h4>
+            <app-code-block language="javascript" [code]="useAuthExample"></app-code-block>
+
+            <h4>Métodos Disponibles:</h4>
+            <ul>
+                <li><code>login(email, password)</code> - Inicia sesión</li>
+                <li><code>register(email, password, metadata)</code> - Registra nuevo usuario</li>
+                <li><code>logout()</code> - Cierra sesión</li>
+            </ul>
+        </div>
+
+        <!-- usePets -->
+        <div class="hook-card">
+            <div class="hook-header">
+                <h3>🐶 usePets(userId)</h3>
+                <div class="hook-meta">
+                    <span class="hook-file">📄 <code>src/hooks/usePets.js</code></span>
+                </div>
+            </div>
+
+            <h4>Parámetros:</h4>
+            <ul>
+                <li><code>userId</code> (UUID): ID del propietario</li>
+            </ul>
+
+            <h4>Métodos:</h4>
+            <div class="methods-list">
+                <div class="method-item">
+                    <code>fetchPets()</code>
+                    <p>Query: <code>supabase.from('mascotas').select('*').eq('propietario_id', userId)</code></p>
+                </div>
+                <div class="method-item">
+                    <code>addPet(data)</code>
+                    <p>Query: <code>supabase.from('mascotas').insert(data)</code></p>
+                </div>
+                <div class="method-item">
+                    <code>deletePet(id)</code>
+                    <p>Borrado lógico o físico de mascota</p>
+                </div>
+            </div>
+
+            <h4>Ejemplo de Uso:</h4>
+            <app-code-block language="javascript" [code]="usePetsExample"></app-code-block>
+        </div>
+
+        <!-- useAppointments -->
+        <div class="hook-card">
+            <div class="hook-header">
+                <h3>📅 useAppointments()</h3>
+                <div class="hook-meta">
+                    <span class="hook-file">📄 <code>src/hooks/useAppointments.js</code></span>
+                </div>
+            </div>
+
+            <h4>Métodos:</h4>
+            <div class="methods-list">
+                <div class="method-item">
+                    <code>fetchAppointments(role, userId)</code>
+                    <p><strong>Lógica condicional:</strong></p>
+                    <ul>
+                        <li>Si es <code>vet</code>: Trae todas las citas del día asignadas al veterinario</li>
+                        <li>Si es <code>client</code>: Solo trae citas de las mascotas del usuario</li>
+                    </ul>
+                </div>
+                <div class="method-item">
+                    <code>createAppointment(data)</code>
+                    <p>Inserta nueva cita en tabla <code>citas</code></p>
+                </div>
+                <div class="method-item">
+                    <code>updateStatus(id, status)</code>
+                    <p>Actualiza el estado de una cita (ej. de 'pendiente' a 'confirmada')</p>
+                </div>
+            </div>
+
+            <h4>Ejemplo:</h4>
+            <app-code-block language="javascript" [code]="useAppointmentsExample"></app-code-block>
+        </div>
+
+        <!-- useAdminData -->
+        <div class="hook-card">
+            <div class="hook-header">
+                <h3>👑 useAdminData()</h3>
+                <div class="hook-meta">
+                    <span class="hook-file">📄 <code>src/hooks/admin/useAdminData.js</code></span>
+                </div>
+            </div>
+
+            <h4>Función:</h4>
+            <p>Agregación de datos para el Dashboard administrativo. Genera estadísticas y métricas del sistema.</p>
+
+            <h4>Queries Complejas:</h4>
+            <ul>
+                <li>Realiza <code>count()</code> en tablas <code>users</code>, <code>citas</code> y
+                    <code>mascotas</code>
+                </li>
+                <li>Calcula promedios y totales</li>
+                <li>Genera datos para gráficos de tendencias</li>
+            </ul>
+
+            <h4>Retorna:</h4>
+            <app-code-block language="javascript" [code]="useAdminDataReturn"></app-code-block>
+        </div>
+    </section>
+
+    <!-- Storage -->
+    <section class="doc-section">
+        <h2>5️⃣ Storage (Archivos)</h2>
+        <p>Gestión de imágenes y documentos médicos almacenados en Supabase Storage.</p>
+
+        <h3>Buckets Configurados:</h3>
+        <ul>
+            <li><code>avatars</code> - Fotos de perfil de usuarios y mascotas</li>
+            <li><code>medical_records</code> - Radiografías, análisis, certificados</li>
+        </ul>
+
+        <h3>Métodos Utilizados:</h3>
+
+        <div class="storage-methods">
+            <div class="storage-method">
+                <h4>📤 uploadImage(uri, path)</h4>
+                <p><strong>Descripción:</strong> Convierte blob y sube archivo a Supabase Storage.</p>
+                <app-code-block language="javascript" [code]="uploadImageCode"></app-code-block>
+            </div>
+
+            <div class="storage-method">
+                <h4>📥 downloadImage(path)</h4>
+                <p><strong>Descripción:</strong> Obtiene URL firmada o pública para mostrar la imagen.</p>
+                <app-code-block language="javascript" [code]="downloadImageCode"></app-code-block>
+            </div>
+        </div>
+
+        <app-info-card type="tip" title="URLs Firmadas">
+            <p>Para documentos médicos sensibles, use <code>createSignedUrl()</code> con expiración de 1 hora. Para
+                fotos de perfil públicas, use <code>getPublicUrl()</code>.</p>
+        </app-info-card>
+    </section>
+
+    <!-- Integraciones Externas -->
+    <section class="doc-section">
+        <h2>6️⃣ Integraciones Externas (3rd Party APIs)</h2>
+        <p>Servicios de terceros integrados en CuidaColitasAPP para funcionalidades extendidas.</p>
+
+        <!-- Botpress -->
+        <div class="integration-card">
+            <div class="integration-header">
+                <h3>🤖 Botpress (Chatbot IA)</h3>
+                <span class="integration-type">Web Integration</span>
+            </div>
+
+            <div class="integration-details">
+                <p><strong>Ubicación:</strong> <code>src/screens/ChatBot/BotpressScreen.js</code></p>
+                <p><strong>Tipo:</strong> Web Integration embebida en WebView</p>
+                <p><strong>Endpoint:</strong> URL del Webchat configurado en la nube de Botpress</p>
+            </div>
+
+            <h4>Funcionalidad:</h4>
+            <p>Renderiza la interfaz conversacional de Botpress dentro de un <code>WebView</code> nativo. El chatbot usa
+                IA (Google Gemini) para responder preguntas sobre cuidado de mascotas.</p>
+
+            <h4>Configuración:</h4>
+            <app-code-block language="javascript" [code]="botpressConfig"></app-code-block>
+
+            <h4>Características:</h4>
+            <ul>
+                <li>💬 Conversación en lenguaje natural</li>
+                <li>🧠 Integración con Google Gemini AI</li>
+                <li>📚 Base de conocimiento sobre cuidado veterinario</li>
+                <li>🕐 Disponible 24/7</li>
+            </ul>
+        </div>
+
+        <!-- Expo Notifications -->
+        <div class="integration-card">
+            <div class="integration-header">
+                <h3>🔔 Expo Notifications</h3>
+                <span class="integration-type">Push Notifications</span>
+            </div>
+
+            <div class="integration-details">
+                <p><strong>Ubicación:</strong> <code>src/hooks/useNotifications.js</code></p>
+                <p><strong>Servicio:</strong> Expo Push Notification Service</p>
+            </div>
+
+            <h4>Funcionalidad:</h4>
+            <p>Gestión de tokens push para enviar alertas a dispositivos iOS y Android.</p>
+
+            <h4>Métodos:</h4>
+            <div class="methods-list">
+                <div class="method-item">
+                    <code>registerForPushNotificationsAsync()</code>
+                    <p>Obtiene el token único del dispositivo (Expo Push Token)</p>
+                    <app-code-block language="javascript" [code]="registerNotificationsCode"></app-code-block>
+                </div>
+
+                <div class="method-item">
+                    <code>sendPushNotification(token, title, body)</code>
+                    <p>Envía la carga útil al servicio de notificaciones de Expo</p>
+                    <app-code-block language="javascript" [code]="sendNotificationCode"></app-code-block>
+                </div>
+            </div>
+
+            <h4>Casos de Uso:</h4>
+            <ul>
+                <li>📅 Recordatorios de citas próximas</li>
+                <li>💉 Alertas de vacunas por vencer</li>
+                <li>✅ Confirmación de citas por veterinario</li>
+                <li>💬 Nuevos mensajes del chat</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Mejores Prácticas -->
+    <section class="doc-section">
+        <h2>📌 Mejores Prácticas de Desarrollo</h2>
+
+        <div class="best-practices-grid">
+            <div class="practice-item">
+                <h4>✅ Usar Hooks Personalizados</h4>
+                <p>Siempre use los hooks en lugar de llamar directamente a Supabase. Esto mantiene la lógica
+                    centralizada.</p>
+            </div>
+
+            <div class="practice-item">
+                <h4>✅ Manejo de Errores</h4>
+                <p>Todos los hooks devuelven <code>error</code>. Siempre verifique y maneje errores apropiadamente.</p>
+            </div>
+
+            <div class="practice-item">
+                <h4>✅ Loading States</h4>
+                <p>Use los estados <code>loading</code> o <code>isLoading</code> para mostrar indicadores visuales al
+                    usuario.</p>
+            </div>
+
+            <div class="practice-item">
+                <h4>✅ Tipado TypeScript</h4>
+                <p>Si migra a TypeScript, defina interfaces para todas las entidades de base de datos.</p>
+            </div>
+
+            <div class="practice-item">
+                <h4>✅ Row Level Security (RLS)</h4>
+                <p>Verifique que todas las tablas tengan políticas RLS activas para garantizar seguridad a nivel de
+                    datos.</p>
+            </div>
+
+            <div class="practice-item">
+                <h4>✅ Documentación de Cambios</h4>
+                <p>Cualquier modificación en el schema de base de datos debe actualizarse en esta documentación.</p>
+            </div>
+        </div>
+    </section>
+
+    <app-info-card type="success" title="Documentación Completa ✨">
+        <p>Esta API Reference cubre todos los aspectos técnicos de CuidaColitasAPP. Para dudas adicionales, consulte el
+            código fuente o contacte al equipo de desarrollo.</p>
+    </app-info-card>
+</div>

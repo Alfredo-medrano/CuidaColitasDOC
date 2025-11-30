@@ -1,0 +1,494 @@
+/* API Reference Specific Styles */
+
+/* API Header */
+.api-header {
+    margin-bottom: 2rem;
+}
+
+.api-header h1 {
+    margin-bottom: 1rem;
+}
+
+.version-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.version-badge,
+.tech-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.version-badge {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+.tech-badge {
+    color: var(--text-primary);
+}
+
+/* File Reference */
+.file-reference {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.file-icon {
+    font-size: 1.5rem;
+}
+
+.file-reference code {
+    background: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--primary-color);
+}
+
+/* API Methods Grid */
+.api-methods {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.method-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.method-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.method-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.method-header h4 {
+    margin: 0;
+    color: var(--card-color);
+    font-size: 1.25rem;
+}
+
+.method-badge {
+    background: var(--bg-tertiary);
+    color: var(--accent-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-family: 'Courier New', monospace;
+}
+
+.method-card h5 {
+    margin: 1rem 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.method-card ul {
+    margin: 0.5rem 0 0 1.5rem;
+}
+
+.method-card li {
+    margin-bottom: 0.5rem;
+}
+
+.method-card code {
+    background: var(--bg-tertiary);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 0.875rem;
+}
+
+/* Table Schema */
+.table-schema {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.table-header code {
+    background: var(--bg-code);
+    color: var(--accent-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.table-source {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.table-source code {
+    background: var(--bg-tertiary);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.schema-table {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.schema-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schema-table thead {
+    background: var(--card-color);
+    color: white;
+}
+
+.schema-table th,
+.schema-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.schema-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.schema-table tbody tr:hover {
+    background: var(--bg-secondary);
+}
+
+.schema-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.type-badge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* Hook Cards */
+.hook-card {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+}
+
+.hook-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+}
+
+.hook-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--accent-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hook-header h3 {
+    margin: 0;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.hook-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.hook-file {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.hook-file code {
+    background: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.methods-list {
+    margin: 1.5rem 0;
+}
+
+.method-item {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--card-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+}
+
+.method-item code {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.method-item p {
+    margin: 0.5rem 0 0 0;
+    color: var(--text-secondary);
+}
+
+.method-item ul {
+    margin: 0.5rem 0 0 1.5rem;
+}
+
+/* Storage Methods */
+.storage-methods {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.storage-method {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.storage-method h4 {
+    margin: 0 0 1rem 0;
+    color: var(--card-color);
+}
+
+/* Integration Cards */
+.integration-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.integration-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.integration-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.integration-type {
+    background: var(--gradient-accent);
+    color: white;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.integration-details {
+    background: var(--bg-primary);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+}
+
+.integration-details p {
+    margin: 0.5rem 0;
+}
+
+.integration-details strong {
+    color: var(--text-primary);
+}
+
+/* Best Practices Grid */
+.best-practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.practice-item {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.practice-item:hover {
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+}
+
+.practice-item h4 {
+    margin: 0 0 0.75rem 0;
+    color: var(--card-color);
+    font-size: 1.125rem;
+}
+
+.practice-item p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* General Doc Styles */
+.doc-page {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.doc-section {
+    margin-bottom: 4rem;
+}
+
+.doc-section h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.doc-section h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--card-color);
+}
+
+.doc-section h4 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.doc-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.doc-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.doc-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.doc-section code {
+    background: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .version-info {
+        flex-direction: column;
+    }
+
+    .method-header,
+    .hook-header,
+    .integration-header,
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .schema-table {
+        font-size: 0.875rem;
+    }
+
+    .schema-table th,
+    .schema-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .best-practices-grid {
+        grid-template-columns: 1fr;
+    }
+}
