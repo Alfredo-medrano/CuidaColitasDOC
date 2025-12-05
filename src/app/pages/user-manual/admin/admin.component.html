@@ -1,8 +1,8 @@
 <div class="doc-page">
-    <h1>👔 Manual de Usuario - Administrador</h1>
+    <h1><i class="fas fa-user-tie"></i> Manual de Usuario - Administrador</h1>
     <p class="lead">Guía completa de gestión y control del sistema CuidaColitasAPP</p>
 
-    <app-info-card type="warning" title="Control Total del Sistema 🔐">
+    <app-info-card type="warning" title="Control Total del Sistema">
         <p>Como <strong>Administrador</strong>, usted tiene el control total sobre la plataforma CuidaColitasAPP. Este
             manual le guiará en la gestión de usuarios (clientes y veterinarios), la configuración global del sistema y
             la supervisión de la actividad operativa de la clínica.</p>
@@ -10,28 +10,28 @@
 
     <!-- Introducción -->
     <section class="doc-section">
-        <h2>1️⃣ Introducción</h2>
+        <h2><i class="fas fa-info-circle"></i> Introducción</h2>
         <p>El rol de Administrador es el nivel de acceso más alto en CuidaColitasAPP. Sus responsabilidades incluyen:
         </p>
 
         <div class="admin-responsibilities">
             <div class="responsibility-card">
-                <span class="responsibility-icon">👥</span>
+                <span class="responsibility-icon"><i class="fas fa-users"></i></span>
                 <h4>Gestión de Personal</h4>
                 <p>Crear, editar y desactivar cuentas de veterinarios y personal</p>
             </div>
             <div class="responsibility-card">
-                <span class="responsibility-icon">📊</span>
+                <span class="responsibility-icon"><i class="fas fa-chart-bar"></i></span>
                 <h4>Supervisión Operativa</h4>
                 <p>Monitorear métricas, citas y rendimiento de la clínica</p>
             </div>
             <div class="responsibility-card">
-                <span class="responsibility-icon">⚙️</span>
+                <span class="responsibility-icon"><i class="fas fa-cog"></i></span>
                 <h4>Configuración Global</h4>
                 <p>Controlar parámetros del sistema y modo mantenimiento</p>
             </div>
             <div class="responsibility-card">
-                <span class="responsibility-icon">🔍</span>
+                <span class="responsibility-icon"><i class="fas fa-search"></i></span>
                 <h4>Auditoría y Seguridad</h4>
                 <p>Revisar logs de actividad y detectar anomalías</p>
             </div>
@@ -45,7 +45,7 @@
 
     <!-- Panel de Control -->
     <section class="doc-section">
-        <h2>2️⃣ Panel de Control (Dashboard)</h2>
+        <h2><i class="fas fa-tachometer-alt"></i> Panel de Control (Dashboard)</h2>
         <p>Al iniciar sesión, accederá a <code>AdminHome</code>, su <strong>centro de operaciones estratégico</strong>.
         </p>
 
@@ -54,7 +54,7 @@
 
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="metric-icon">👥</div>
+                <div class="metric-icon"><i class="fas fa-users"></i></div>
                 <h4>Total de Usuarios</h4>
                 <p>Conteo de clientes y veterinarios activos en el sistema</p>
                 <ul>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="metric-card">
-                <div class="metric-icon">📅</div>
+                <div class="metric-icon"><i class="fas fa-calendar-alt"></i></div>
                 <h4>Citas del Mes</h4>
                 <p>Volumen de atención del período actual</p>
                 <ul>
@@ -77,7 +77,7 @@
             </div>
 
             <div class="metric-card">
-                <div class="metric-icon">🐾</div>
+                <div class="metric-icon"><i class="fas fa-paw"></i></div>
                 <h4>Pacientes Registrados</h4>
                 <p>Total de mascotas en la base de datos</p>
                 <ul>
@@ -88,7 +88,7 @@
             </div>
 
             <div class="metric-card">
-                <div class="metric-icon">💰</div>
+                <div class="metric-icon"><i class="fas fa-dollar-sign"></i></div>
                 <h4>Ingresos (Opcional)</h4>
                 <p>Si se activa el módulo financiero</p>
                 <ul>
@@ -117,7 +117,7 @@
 
     <!-- Gestión de Veterinarios -->
     <section class="doc-section">
-        <h2>3️⃣ Gestión de Recursos Humanos (Veterinarios)</h2>
+        <h2><i class="fas fa-user-md"></i> Gestión de Recursos Humanos (Veterinarios)</h2>
         <p><strong>Usted es el único autorizado</strong> para dar de alta al personal médico.</p>
 
         <h3>3.1. Crear Cuenta de Veterinario</h3>
@@ -130,7 +130,7 @@
         </ol>
 
         <div class="form-detail">
-            <h4>📋 Campos Obligatorios:</h4>
+            <h4><i class="fas fa-clipboard-list"></i> Campos Obligatorios:</h4>
             <ul>
                 <li><strong>Nombre y Apellido:</strong> Nombre completo del profesional</li>
                 <li><strong>Especialidad:</strong> Seleccione de la lista:
@@ -161,7 +161,7 @@
         </div>
 
         <div class="form-detail">
-            <h4>🕐 Configuración de Horario de Trabajo:</h4>
+            <h4><i class="fas fa-clock"></i> Configuración de Horario de Trabajo:</h4>
             <p>Defina los turnos disponibles del veterinario. Esto determinará cuándo los clientes pueden solicitar
                 citas con él/ella.</p>
 
@@ -221,7 +221,8 @@
         <app-info-card type="info" title="Desactivación vs Eliminación">
             <p><strong>Importante:</strong> Desactivar NO elimina al veterinario ni su historial de atenciones. Solo
                 <strong>bloquea su acceso</strong> temporalmente. Esto preserva la integridad del historial médico de
-                los pacientes que atendió.</p>
+                los pacientes que atendió.
+            </p>
         </app-info-card>
 
         <h4>Efectos de la Desactivación:</h4>
@@ -236,7 +237,7 @@
 
     <!-- Gestión de Clientes -->
     <section class="doc-section">
-        <h2>4️⃣ Gestión de Clientes y Mascotas</h2>
+        <h2><i class="fas fa-user-friends"></i> Gestión de Clientes y Mascotas</h2>
 
         <h3>4.1. Supervisión de Clientes</h3>
         <p>En la sección <strong>"Gestión de Clientes"</strong> (<code>GestionClientes</code>), usted tiene control
@@ -246,7 +247,7 @@
 
         <div class="client-management">
             <div class="management-item">
-                <h5>👀 Ver Lista Completa</h5>
+                <h5><i class="fas fa-eye"></i> Ver Lista Completa</h5>
                 <ul>
                     <li>Todos los dueños registrados</li>
                     <li>Estado de cuenta (activo/inactivo)</li>
@@ -256,7 +257,7 @@
             </div>
 
             <div class="management-item">
-                <h5>🔍 Búsqueda Avanzada</h5>
+                <h5><i class="fas fa-search"></i> Búsqueda Avanzada</h5>
                 <p>Filtrar por múltiples criterios:</p>
                 <ul>
                     <li><strong>Nombre:</strong> Búsqueda por nombre del cliente</li>
@@ -267,7 +268,7 @@
             </div>
 
             <div class="management-item">
-                <h5>📄 Detalle del Cliente</h5>
+                <h5><i class="fas fa-file-alt"></i> Detalle del Cliente</h5>
                 <p>Al seleccionar un cliente, accede a <code>DetalleCliente</code> donde puede ver:</p>
                 <ul>
                     <li>Información personal completa</li>
@@ -279,7 +280,7 @@
             </div>
 
             <div class="management-item">
-                <h5>🚫 Bloqueo de Usuarios</h5>
+                <h5><i class="fas fa-ban"></i> Bloqueo de Usuarios</h5>
                 <p><strong>Cuándo bloquear un cliente:</strong></p>
                 <ul>
                     <li>Cancelaciones repetidas sin aviso</li>
@@ -325,7 +326,7 @@
 
     <!-- Calendario Maestro -->
     <section class="doc-section">
-        <h2>5️⃣ Calendario Maestro y Citas</h2>
+        <h2><i class="fas fa-calendar"></i> Calendario Maestro y Citas</h2>
         <p>A diferencia del veterinario que ve solo su agenda personal, <strong>usted ve toda la operación</strong> de
             la clínica en un solo lugar.</p>
 
@@ -402,12 +403,12 @@
 
     <!-- Configuración del Sistema -->
     <section class="doc-section">
-        <h2>6️⃣ Configuración del Sistema</h2>
+        <h2><i class="fas fa-cogs"></i> Configuración del Sistema</h2>
         <p>La sección <code>ConfiguracionSistema</code> controla el <strong>comportamiento técnico y operativo</strong>
             de toda la plataforma.</p>
 
         <h3>6.1. Modo Mantenimiento</h3>
-        <app-info-card type="warning" title="⚠️ Función Crítica - Usar con Precaución">
+        <app-info-card type="warning" title="Función Crítica - Usar con Precaución">
             <p>El Modo Mantenimiento <strong>bloquea el acceso</strong> de todos los usuarios no administradores a la
                 aplicación.</p>
         </app-info-card>
@@ -484,7 +485,7 @@
 
     <!-- Auditoría y Seguridad -->
     <section class="doc-section">
-        <h2>7️⃣ Auditoría y Seguridad (AdminLogs)</h2>
+        <h2><i class="fas fa-shield-alt"></i> Auditoría y Seguridad (AdminLogs)</h2>
         <p>Para mantener la <strong>transparencia y seguridad</strong> de la clínica, el sistema registra todas las
             acciones importantes.</p>
 
@@ -535,7 +536,7 @@
 
         <div class="security-alerts">
             <div class="alert-type">
-                <h4>🚨 Intentos de Acceso Fallidos</h4>
+                <h4><i class="fas fa-exclamation-triangle"></i> Intentos de Acceso Fallidos</h4>
                 <p><strong>Alerta si:</strong> Un usuario intenta ingresar con contraseña incorrecta más de 5 veces</p>
                 <p><strong>Acción sugerida:</strong> Verificar si es el usuario legítimo que olvidó su contraseña o un
                     intento de acceso no autorizado</p>
@@ -568,7 +569,7 @@
 
     <!-- Comunicación Interna -->
     <section class="doc-section">
-        <h2>8️⃣ Comunicación Interna</h2>
+        <h2><i class="fas fa-comments"></i> Comunicación Interna</h2>
 
         <h3>8.1. Mensajes Administrativos</h3>
         <p>Canal directo para comunicarse con el personal veterinario:</p>
@@ -601,7 +602,7 @@
 
     <!-- FAQ Administración -->
     <section class="doc-section">
-        <h2>9️⃣ Preguntas Frecuentes de Administración</h2>
+        <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes de Administración</h2>
 
         <div class="faq-item">
             <h3>¿Cómo recupero la contraseña de un veterinario?</h3>
@@ -692,7 +693,7 @@
 
     <!-- Mejores Prácticas -->
     <section class="doc-section">
-        <h2>📌 Mejores Prácticas de Administración</h2>
+        <h2><i class="fas fa-thumbtack"></i> Mejores Prácticas de Administración</h2>
 
         <div class="best-practices">
             <div class="practice-card">
@@ -730,37 +731,38 @@
 
     <!-- Soporte -->
     <section class="doc-section">
-        <h2>📞 Soporte Técnico y Contacto</h2>
+        <h2><i class="fas fa-phone"></i> Soporte Técnico y Contacto</h2>
         <p>Para asistencia técnica o consultas administrativas:</p>
 
         <div class="contact-grid">
             <div class="contact-card">
-                <span class="contact-icon">🛠️</span>
+                <span class="contact-icon"><i class="fas fa-tools"></i></span>
                 <h4>Soporte Técnico</h4>
                 <p>desarrollo@cuidacolitas.com</p>
             </div>
             <div class="contact-card">
-                <span class="contact-icon">📱</span>
+                <span class="contact-icon"><i class="fas fa-mobile-alt"></i></span>
                 <h4>Teléfono Urgencias</h4>
                 <p>+503 1234-5678</p>
             </div>
             <div class="contact-card">
-                <span class="contact-icon">📚</span>
+                <span class="contact-icon"><i class="fas fa-book"></i></span>
                 <h4>Documentación</h4>
                 <p><a href="/developer/architecture">Ver Arquitectura</a></p>
             </div>
             <div class="contact-card">
-                <span class="contact-icon">💬</span>
+                <span class="contact-icon"><i class="fas fa-comments"></i></span>
                 <h4>Chat de Soporte</h4>
                 <p>Disponible en la app</p>
             </div>
         </div>
     </section>
 
-    <app-info-card type="success" title="Responsabilidad Administrativa 👔">
+    <app-info-card type="success" title="Responsabilidad Administrativa">
         <p>Como Administrador, su rol es <strong>vital para que la clínica fluya sin problemas</strong>. Use estas
             herramientas con responsabilidad y siempre priorice la <strong>seguridad de los datos</strong> y la
-            <strong>privacidad de los pacientes</strong>.</p>
+            <strong>privacidad de los pacientes</strong>.
+        </p>
         <p><em>¡Gracias por mantener CuidaColitasAPP funcionando de manera óptima!</em></p>
     </app-info-card>
 </div>
