@@ -1,6 +1,6 @@
 <div class="doc-page">
     <div class="api-header">
-        <h1>📚 API Reference & Data Architecture</h1>
+        <h1><i class="fas fa-book"></i> API Reference & Data Architecture</h1>
         <div class="version-info">
             <span class="version-badge">Versión: 1.0.0</span>
             <span class="tech-badge">Backend: Supabase (PostgreSQL)</span>
@@ -10,19 +10,19 @@
     <p class="lead">Documentación completa de la capa de datos, hooks personalizados para interactuar con el backend e
         integraciones externas del sistema CuidaColitasAPP.</p>
 
-    <app-info-card type="info" title="Para Desarrolladores 👨‍💻">
+    <app-info-card type="info" title="Para Desarrolladores">
         <p>Esta sección documenta todos los métodos, hooks y estructuras de datos que utiliza la aplicación. Use esta
             referencia para mantener consistencia en el desarrollo y entender la arquitectura de datos.</p>
     </app-info-card>
 
     <!-- Cliente Supabase Core -->
     <section class="doc-section">
-        <h2>1️⃣ Cliente Supabase (Core)</h2>
+        <h2><i class="fas fa-server"></i> Cliente Supabase (Core)</h2>
         <p>El cliente se inicializa como un <strong>Singleton</strong> para gestionar la conexión persistente con el
             backend.</p>
 
         <div class="file-reference">
-            <span class="file-icon">📄</span>
+            <span class="file-icon"><i class="fas fa-file-code"></i></span>
             <strong>Archivo:</strong> <code>src/api/Supabase.js</code>
         </div>
 
@@ -36,21 +36,25 @@
 
         <h3>Características Clave:</h3>
         <ul>
-            <li>✅ <strong>Patrón Singleton:</strong> Una única instancia compartida en toda la app</li>
-            <li>✅ <strong>Auto-refresh de tokens:</strong> Renueva automáticamente tokens JWT expirados</li>
-            <li>✅ <strong>Persistencia de sesión:</strong> El usuario se mantiene logueado</li>
-            <li>✅ <strong>Storage local:</strong> Usa AsyncStorage para React Native</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Patrón Singleton:</strong> Una única instancia compartida en
+                toda la app</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Auto-refresh de tokens:</strong> Renueva automáticamente
+                tokens JWT expirados</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Persistencia de sesión:</strong> El usuario se mantiene
+                logueado</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Storage local:</strong> Usa AsyncStorage para React Native
+            </li>
         </ul>
     </section>
 
     <!-- Autenticación -->
     <section class="doc-section">
-        <h2>2️⃣ Autenticación (Auth API)</h2>
+        <h2><i class="fas fa-key"></i> Autenticación (Auth API)</h2>
         <p>Gestionada globalmente a través de <code>AuthContext.js</code>. Todos los métodos de autenticación están
             centralizados.</p>
 
         <div class="file-reference">
-            <span class="file-icon">📄</span>
+            <span class="file-icon"><i class="fas fa-file-code"></i></span>
             <strong>Context:</strong> <code>src/context/AuthContext.js</code>
         </div>
 
@@ -59,13 +63,13 @@
         <div class="api-methods">
             <div class="method-card">
                 <div class="method-header">
-                    <h4>🔐 signIn</h4>
+                    <h4><i class="fas fa-lock"></i> signIn</h4>
                     <span class="method-badge">auth.signInWithPassword()</span>
                 </div>
                 <p><strong>Descripción:</strong> Inicia sesión con credenciales de correo y contraseña.</p>
 
                 <div class="method-header">
-                    <h4>📝 signUp</h4>
+                    <h4><i class="fas fa-edit"></i> signUp</h4>
                     <span class="method-badge">auth.signUp()</span>
                 </div>
                 <p><strong>Descripción:</strong> Registra un nuevo usuario en <code>auth.users</code> con metadata
@@ -97,7 +101,7 @@
 
             <div class="method-card">
                 <div class="method-header">
-                    <h4>🔑 resetPassword</h4>
+                    <h4><i class="fas fa-key"></i> resetPassword</h4>
                     <span class="method-badge">auth.resetPasswordForEmail()</span>
                 </div>
                 <p><strong>Descripción:</strong> Envía un correo electrónico con enlace de recuperación de contraseña.
@@ -115,7 +119,7 @@
 
     <!-- Estructura de Datos -->
     <section class="doc-section">
-        <h2>3️⃣ Estructura de Datos (Database Schema)</h2>
+        <h2><i class="fas fa-database"></i> Estructura de Datos (Database Schema)</h2>
         <p>Esquema relacional inferido del uso en <code>src/hooks/</code> y <code>src/screens/</code>. La base de datos
             PostgreSQL está alojada en Supabase.</p>
 
@@ -128,7 +132,7 @@
         <!-- Tabla Perfiles -->
         <div class="table-schema">
             <div class="table-header">
-                <h3>👤 Tabla: <code>perfiles</code> (Usuarios)</h3>
+                <h3><i class="fas fa-user"></i> Tabla: <code>perfiles</code> (Usuarios)</h3>
                 <span class="table-source">Fuente: <code>src/context/AuthContext.js</code>,
                     <code>src/screens/Client/ProfileCliente.js</code></span>
             </div>
@@ -189,7 +193,7 @@
         <!-- Tabla Mascotas -->
         <div class="table-schema">
             <div class="table-header">
-                <h3>🐾 Tabla: <code>mascotas</code></h3>
+                <h3><i class="fas fa-paw"></i> Tabla: <code>mascotas</code></h3>
                 <span class="table-source">Fuente: <code>src/hooks/usePets.js</code></span>
             </div>
 
@@ -249,7 +253,7 @@
         <!-- Tabla Citas -->
         <div class="table-schema">
             <div class="table-header">
-                <h3>📅 Tabla: <code>citas</code></h3>
+                <h3><i class="fas fa-calendar-alt"></i> Tabla: <code>citas</code></h3>
                 <span class="table-source">Fuente: <code>src/hooks/useAppointments.js</code></span>
             </div>
 
@@ -308,7 +312,7 @@
         <!-- Historial Médico -->
         <div class="table-schema">
             <div class="table-header">
-                <h3>🩺 Historial Médico</h3>
+                <h3><i class="fas fa-stethoscope"></i> Historial Médico</h3>
                 <span class="table-source">Fuente: <code>src/screens/Vet/HistorialMedico.js</code></span>
             </div>
 
@@ -331,7 +335,7 @@
 
     <!-- Hooks Personalizados -->
     <section class="doc-section">
-        <h2>4️⃣ Hooks Personalizados (Frontend API)</h2>
+        <h2><i class="fas fa-code-branch"></i> Hooks Personalizados (Frontend API)</h2>
         <p>Estos hooks encapsulan la lógica de negocio y las llamadas a Supabase. <strong>Los desarrolladores deben usar
                 estos hooks</strong> en lugar de llamar a <code>supabase</code> directamente en los componentes.</p>
 
@@ -343,9 +347,10 @@
         <!-- useAuth -->
         <div class="hook-card">
             <div class="hook-header">
-                <h3>🔐 useAuth()</h3>
+                <h3><i class="fas fa-lock"></i> useAuth()</h3>
                 <div class="hook-meta">
-                    <span class="hook-file">📄 <code>src/context/AuthContext.js</code></span>
+                    <span class="hook-file"><i class="fas fa-file-code"></i>
+                        <code>src/context/AuthContext.js</code></span>
                 </div>
             </div>
 
@@ -369,9 +374,9 @@
         <!-- usePets -->
         <div class="hook-card">
             <div class="hook-header">
-                <h3>🐶 usePets(userId)</h3>
+                <h3><i class="fas fa-paw"></i> usePets(userId)</h3>
                 <div class="hook-meta">
-                    <span class="hook-file">📄 <code>src/hooks/usePets.js</code></span>
+                    <span class="hook-file"><i class="fas fa-file-code"></i> <code>src/hooks/usePets.js</code></span>
                 </div>
             </div>
 
@@ -403,9 +408,10 @@
         <!-- useAppointments -->
         <div class="hook-card">
             <div class="hook-header">
-                <h3>📅 useAppointments()</h3>
+                <h3><i class="fas fa-calendar-alt"></i> useAppointments()</h3>
                 <div class="hook-meta">
-                    <span class="hook-file">📄 <code>src/hooks/useAppointments.js</code></span>
+                    <span class="hook-file"><i class="fas fa-file-code"></i>
+                        <code>src/hooks/useAppointments.js</code></span>
                 </div>
             </div>
 
@@ -436,9 +442,10 @@
         <!-- useAdminData -->
         <div class="hook-card">
             <div class="hook-header">
-                <h3>👑 useAdminData()</h3>
+                <h3><i class="fas fa-crown"></i> useAdminData()</h3>
                 <div class="hook-meta">
-                    <span class="hook-file">📄 <code>src/hooks/admin/useAdminData.js</code></span>
+                    <span class="hook-file"><i class="fas fa-file-code"></i>
+                        <code>src/hooks/admin/useAdminData.js</code></span>
                 </div>
             </div>
 
@@ -461,7 +468,7 @@
 
     <!-- Storage -->
     <section class="doc-section">
-        <h2>5️⃣ Storage (Archivos)</h2>
+        <h2><i class="fas fa-folder-open"></i> Storage (Archivos)</h2>
         <p>Gestión de imágenes y documentos médicos almacenados en Supabase Storage.</p>
 
         <h3>Buckets Configurados:</h3>
@@ -474,13 +481,13 @@
 
         <div class="storage-methods">
             <div class="storage-method">
-                <h4>📤 uploadImage(uri, path)</h4>
+                <h4><i class="fas fa-cloud-upload-alt"></i> uploadImage(uri, path)</h4>
                 <p><strong>Descripción:</strong> Convierte blob y sube archivo a Supabase Storage.</p>
                 <app-code-block language="javascript" [code]="uploadImageCode"></app-code-block>
             </div>
 
             <div class="storage-method">
-                <h4>📥 downloadImage(path)</h4>
+                <h4><i class="fas fa-cloud-download-alt"></i> downloadImage(path)</h4>
                 <p><strong>Descripción:</strong> Obtiene URL firmada o pública para mostrar la imagen.</p>
                 <app-code-block language="javascript" [code]="downloadImageCode"></app-code-block>
             </div>
@@ -494,13 +501,13 @@
 
     <!-- Integraciones Externas -->
     <section class="doc-section">
-        <h2>6️⃣ Integraciones Externas (3rd Party APIs)</h2>
+        <h2><i class="fas fa-plug"></i> Integraciones Externas (3rd Party APIs)</h2>
         <p>Servicios de terceros integrados en CuidaColitasAPP para funcionalidades extendidas.</p>
 
         <!-- Botpress -->
         <div class="integration-card">
             <div class="integration-header">
-                <h3>🤖 Botpress (Chatbot IA)</h3>
+                <h3><i class="fas fa-robot"></i> Botpress (Chatbot IA)</h3>
                 <span class="integration-type">Web Integration</span>
             </div>
 
@@ -519,17 +526,17 @@
 
             <h4>Características:</h4>
             <ul>
-                <li>💬 Conversación en lenguaje natural</li>
-                <li>🧠 Integración con Google Gemini AI</li>
-                <li>📚 Base de conocimiento sobre cuidado veterinario</li>
-                <li>🕐 Disponible 24/7</li>
+                <li><i class="fas fa-comments"></i> Conversación en lenguaje natural</li>
+                <li><i class="fas fa-brain"></i> Integración con Google Gemini AI</li>
+                <li><i class="fas fa-book-open"></i> Base de conocimiento sobre cuidado veterinario</li>
+                <li><i class="fas fa-clock"></i> Disponible 24/7</li>
             </ul>
         </div>
 
         <!-- Expo Notifications -->
         <div class="integration-card">
             <div class="integration-header">
-                <h3>🔔 Expo Notifications</h3>
+                <h3><i class="fas fa-bell"></i> Expo Notifications</h3>
                 <span class="integration-type">Push Notifications</span>
             </div>
 
@@ -558,55 +565,55 @@
 
             <h4>Casos de Uso:</h4>
             <ul>
-                <li>📅 Recordatorios de citas próximas</li>
-                <li>💉 Alertas de vacunas por vencer</li>
-                <li>✅ Confirmación de citas por veterinario</li>
-                <li>💬 Nuevos mensajes del chat</li>
+                <li><i class="fas fa-calendar-alt"></i> Recordatorios de citas próximas</li>
+                <li><i class="fas fa-syringe"></i> Alertas de vacunas por vencer</li>
+                <li><i class="fas fa-check-circle"></i> Confirmación de citas por veterinario</li>
+                <li><i class="fas fa-comments"></i> Nuevos mensajes del chat</li>
             </ul>
         </div>
     </section>
 
     <!-- Mejores Prácticas -->
     <section class="doc-section">
-        <h2>📌 Mejores Prácticas de Desarrollo</h2>
+        <h2><i class="fas fa-thumbtack"></i> Mejores Prácticas de Desarrollo</h2>
 
         <div class="best-practices-grid">
             <div class="practice-item">
-                <h4>✅ Usar Hooks Personalizados</h4>
+                <h4><i class="fas fa-check-circle"></i> Usar Hooks Personalizados</h4>
                 <p>Siempre use los hooks en lugar de llamar directamente a Supabase. Esto mantiene la lógica
                     centralizada.</p>
             </div>
 
             <div class="practice-item">
-                <h4>✅ Manejo de Errores</h4>
+                <h4><i class="fas fa-check-circle"></i> Manejo de Errores</h4>
                 <p>Todos los hooks devuelven <code>error</code>. Siempre verifique y maneje errores apropiadamente.</p>
             </div>
 
             <div class="practice-item">
-                <h4>✅ Loading States</h4>
+                <h4><i class="fas fa-check-circle"></i> Loading States</h4>
                 <p>Use los estados <code>loading</code> o <code>isLoading</code> para mostrar indicadores visuales al
                     usuario.</p>
             </div>
 
             <div class="practice-item">
-                <h4>✅ Tipado TypeScript</h4>
+                <h4><i class="fas fa-check-circle"></i> Tipado TypeScript</h4>
                 <p>Si migra a TypeScript, defina interfaces para todas las entidades de base de datos.</p>
             </div>
 
             <div class="practice-item">
-                <h4>✅ Row Level Security (RLS)</h4>
+                <h4><i class="fas fa-check-circle"></i> Row Level Security (RLS)</h4>
                 <p>Verifique que todas las tablas tengan políticas RLS activas para garantizar seguridad a nivel de
                     datos.</p>
             </div>
 
             <div class="practice-item">
-                <h4>✅ Documentación de Cambios</h4>
+                <h4><i class="fas fa-check-circle"></i> Documentación de Cambios</h4>
                 <p>Cualquier modificación en el schema de base de datos debe actualizarse en esta documentación.</p>
             </div>
         </div>
     </section>
 
-    <app-info-card type="success" title="Documentación Completa ✨">
+    <app-info-card type="success" title="Documentación Completa">
         <p>Esta API Reference cubre todos los aspectos técnicos de CuidaColitasAPP. Para dudas adicionales, consulte el
             código fuente o contacte al equipo de desarrollo.</p>
     </app-info-card>

@@ -2,19 +2,21 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in">
-            <div class="logo-large">🐾</div>
+            <div class="logo-large"><i class="fa-solid fa-paw"></i></div>
             <h1 class="hero-title">CuidaColitas</h1>
-            <p class="hero-subtitle">Sistema Integral de Gestión Veterinaria</p>
+            <p class="hero-subtitle">Plataforma Integral de Gestión Veterinaria</p>
             <p class="hero-description">
-                Documentación completa para usuarios, desarrolladores y administradores del sistema CuidaColitas
+                Documentación técnica y guías para usuarios, desarrolladores y administradores de la plataforma
+                CuidaColitas
             </p>
             <div class="hero-actions">
                 <a routerLink="/user-manual/cliente" class="btn btn-primary">
-                    Comenzar
-                    <span>→</span>
+                    <i class="fa-solid fa-book-open"></i>
+                    Guía de Usuario
                 </a>
                 <a routerLink="/developer/architecture" class="btn btn-secondary">
-                    Ver Arquitectura
+                    <i class="fa-solid fa-diagram-project"></i>
+                    Arquitectura del Sistema
                 </a>
             </div>
         </div>
@@ -27,7 +29,7 @@
             @for (feature of features; track feature.title) {
             <a [routerLink]="feature.route" class="feature-card">
                 <div class="feature-icon" [style.background]="feature.gradient">
-                    {{ feature.icon }}
+                    <i [class]="feature.icon"></i>
                 </div>
                 <h3 class="feature-title">{{ feature.title }}</h3>
                 <p class="feature-description">{{ feature.description }}</p>
@@ -46,7 +48,7 @@
         <div class="quick-links-grid">
             @for (link of quickLinks; track link.label) {
             <a [routerLink]="link.route" class="quick-link-item">
-                <span class="link-icon">📄</span>
+                <span class="link-icon"><i class="fa-solid fa-file-lines"></i></span>
                 <span class="link-label">{{ link.label }}</span>
                 <span class="link-arrow">→</span>
             </a>
@@ -58,22 +60,22 @@
     <section class="stats">
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-icon">👥</div>
+                <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
                 <div class="stat-value">3</div>
                 <div class="stat-label">Tipos de Usuario</div>
             </div>
             <div class="stat-item">
-                <div class="stat-icon">📱</div>
+                <div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
                 <div class="stat-value">Mobile</div>
                 <div class="stat-label">React Native + Expo</div>
             </div>
             <div class="stat-item">
-                <div class="stat-icon">🤖</div>
+                <div class="stat-icon"><i class="fa-solid fa-brain"></i></div>
                 <div class="stat-value">IA</div>
                 <div class="stat-label">Chatbot con Gemini</div>
             </div>
             <div class="stat-item">
-                <div class="stat-icon">🗄️</div>
+                <div class="stat-icon"><i class="fa-solid fa-database"></i></div>
                 <div class="stat-value">Supabase</div>
                 <div class="stat-label">Backend & Database</div>
             </div>
@@ -87,10 +89,12 @@
             <p>Comienza con nuestra guía de inicio rápido para usuarios o desarrolladores</p>
             <div class="getting-started-actions">
                 <a routerLink="/user-manual/cliente" class="btn btn-primary">
-                    👤 Soy Usuario
+                    <i class="fa-solid fa-user"></i>
+                    Soy Usuario
                 </a>
                 <a routerLink="/developer/installation" class="btn btn-primary">
-                    💻 Soy Desarrollador
+                    <i class="fa-solid fa-laptop-code"></i>
+                    Soy Desarrollador
                 </a>
             </div>
         </div>

@@ -24,12 +24,12 @@ export class NavigationService {
     public navItems = signal<NavItem[]>([
         {
             label: 'Inicio',
-            icon: '🏠',
+            icon: 'fa-solid fa-house',
             route: '/home'
         },
         {
             label: 'Manual de Usuario',
-            icon: '📖',
+            icon: 'fa-solid fa-book',
             expanded: false,
             children: [
                 { label: 'Para Clientes', route: '/user-manual/cliente' },
@@ -39,7 +39,7 @@ export class NavigationService {
         },
         {
             label: 'Manual de Desarrollador',
-            icon: '👨‍💻',
+            icon: 'fa-solid fa-code',
             expanded: false,
             children: [
                 { label: 'Arquitectura', route: '/developer/architecture' },
@@ -51,7 +51,7 @@ export class NavigationService {
         },
         {
             label: 'Documentación Técnica',
-            icon: '📋',
+            icon: 'fa-solid fa-server',
             expanded: false,
             children: [
                 { label: 'Base de Datos', route: '/technical/database' },

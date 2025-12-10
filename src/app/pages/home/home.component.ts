@@ -20,25 +20,25 @@ interface FeatureCard {
 export class HomeComponent {
     protected features: FeatureCard[] = [
         {
-            icon: '📖',
+            icon: 'fa-solid fa-book',
             title: 'Manual de Usuario',
-            description: 'Guías paso a paso para clientes, veterinarios y administradores',
+            description: 'Guías completas para clientes, veterinarios y administradores del sistema',
             route: '/user-manual/cliente',
-            gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            gradient: 'linear-gradient(135deg, #0A8A7B 0%, #43C0AF 100%)'
         },
         {
-            icon: '👨‍💻',
+            icon: 'fa-solid fa-code',
             title: 'Manual de Desarrollador',
-            description: 'Documentación técnica, arquitectura y guías de instalación',
+            description: 'Documentación técnica, arquitectura y guías de implementación',
             route: '/developer/architecture',
-            gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+            gradient: 'linear-gradient(135deg, #027A74 0%, #0A8A7B 100%)'
         },
         {
-            icon: '📋',
+            icon: 'fa-solid fa-server',
             title: 'Documentación Técnica',
-            description: 'Base de datos, RLS policies, deployment y troubleshooting',
+            description: 'Base de datos, seguridad RLS, deployment y solución de problemas',
             route: '/technical/database',
-            gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+            gradient: 'linear-gradient(135deg, #E07856 0%, #CDA37B 100%)'
         }
     ];
 

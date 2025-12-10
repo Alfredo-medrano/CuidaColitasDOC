@@ -14,7 +14,7 @@
                 <!-- Item with children (expandable) -->
                 @if (item.children && item.children.length > 0) {
                 <button class="nav-link nav-parent" [class.expanded]="item.expanded" (click)="toggleItem(item.label)">
-                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-icon"><i [class]="item.icon"></i></span>
                     <span class="nav-label">{{ item.label }}</span>
                     <span class="expand-icon">{{ item.expanded ? '▼' : '▶' }}</span>
                 </button>
@@ -38,7 +38,7 @@
                 <!-- Item without children (direct link) -->
                 @else if (item.route) {
                 <a [routerLink]="item.route" routerLinkActive="active" class="nav-link" (click)="onLinkClick()">
-                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-icon"><i [class]="item.icon"></i></span>
                     <span class="nav-label">{{ item.label }}</span>
                 </a>
                 }

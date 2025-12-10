@@ -1,16 +1,16 @@
-<header class="header">
+﻿<header class="header">
     <div class="header-container">
         <!-- Mobile Menu Button -->
         <button class="menu-btn" (click)="toggleSidebar()" aria-label="Toggle menu">
-            <span class="hamburger">☰</span>
+            <span class="hamburger"><i class="fa-solid fa-bars"></i></span>
         </button>
 
         <!-- Logo & Brand -->
         <a routerLink="/home" class="brand">
-            <span class="logo">🐾</span>
+            <span class="logo"><i class="fa-solid fa-paw"></i></span>
             <span class="brand-text">
                 <span class="brand-name">CuidaColitas</span>
-                <span class="brand-subtitle">Documentación</span>
+                <span class="brand-subtitle">Documentación Oficial</span>
             </span>
         </a>
 
@@ -20,17 +20,16 @@
             <button class="theme-toggle" (click)="toggleTheme()"
                 [attr.aria-label]="themeService.theme() === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'">
                 @if (themeService.theme() === 'light') {
-                <span class="icon" title="cambiar a oscuro" aria-label="dark">🌙</span>
+                <i class="fa-solid fa-moon icon" title="Cambiar a modo oscuro" aria-label="dark"></i>
                 } @else {
-                <span class="icon" title="cambiar a claro" aria-label="light">☀️</span>
+                <i class="fa-solid fa-sun icon" title="Cambiar a modo claro" aria-label="light"></i>
                 }
             </button>
 
             <!-- GitHub Link -->
             <a href="https://github.com/Alfredo-medrano/CuidaColitasAPP-UGB.git" target="_blank"
                 rel="noopener noreferrer" class="github-link" aria-label="Ver en GitHub">
-                <span class="icon" title="github" aria-label="github">💻</span>
-
+                <i class="fa-brands fa-github icon" title="Ver en GitHub" aria-label="github"></i>
             </a>
         </div>
     </div>
